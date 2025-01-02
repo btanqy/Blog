@@ -1,0 +1,57 @@
+.banner { 
+    justify-content: center;
+    background-color:lightgrey; 
+  }
+
+.banner-content { 
+    padding: 10px; 
+    padding-left: clamp(15px, 2vw, 50px);
+    color:black;
+    font-size: clamp(30px, 6vw, 60px);
+}
+
+.banner-link {
+    color: black;
+    padding-top: 30px;
+    padding-right: clamp(15px, 2vw, 50px);
+    font-size: clamp(20px, 4vw, 50px);
+    text-decoration: none;
+}
+
+.left-text {
+    text-align: left;
+}
+
+.right-text {
+    text-align: right;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-decoration a{
+    text-decoration: none;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.icon-white{
+    color:ghostwhite;
+    outline: none;
+    box-shadow: none;
+}
+
+body {
+    font-family: "Noto Sans";
+    background-color:#3A3B3C;
+    color:ghostwhite;
+    padding: 1vw;
+}
