@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <?php include_once dirname(__DIR__, 2) . '/config.php'; ?>
+  <?php include_once dirname(__DIR__, 3) . '/config.php'; ?>
   <!-- Link to fonts and icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,14 +15,29 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 
+<!-- Date, thumbnail, preview here -->
+<?php
+$date = "";
+$thumbnail = "Images/";
+$preview = "";
+$category = "";
+$subcategory = "";
+?>
 
 <body>
   <!-- Banner -->
   <?php include ROOT . '/Main/banner.php'; ?>
-
-
   <!-- Page starts here -->
-  <div>
+  <div class="center">
+    <h1>
+
+    </h1>
+
+
   </div>
+
+</body>
+
+</div>
 
 </html>

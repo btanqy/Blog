@@ -28,9 +28,10 @@
     <body class="no-decoration">
       <p>
         Hi, I'm Brian Tan. I'm a 3rd year electrical engineering student from
-        UCLA, and this website is a collage of projects and blogging material.
-        You can find my projects on Github or under the Projects tab. My email
-        is btanqy@gmail.com.<br />
+        UCLA, and this website is a fun project for me to rant about my favorite things, which currently include
+        building mechanical keyboards, making food, and exploring LA!
+        I'm also posting my projects on Github and under the Projects tab. If any of this interests you too, feel free
+        to contact me in any way below!<br />
         <br />
       </p>
       <div class="center-text">
@@ -44,6 +45,10 @@
         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
         <a href="https://www.linkedin.com/in/btanqy/" target="_blank">
           <i class="fab fa-linkedin fa-5x icon-white"></i>
+        </a>
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <a href="https://discord.com/invite/qGfptqAW" target="_blank">
+          <i class="fab fa-discord fa-5x icon-white"></i>
         </a>
       </div>
     </body>

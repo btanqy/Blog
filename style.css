@@ -43,15 +43,134 @@
     padding: 0px !important;
 }
 
+.black {
+    color: black;
+}
+
+.white {
+    color: ghostwhite;
+}
+
+/* About page */
+
 .icon-white{
     color:ghostwhite;
     outline: none;
     box-shadow: none;
 }
 
+/* List of boxes + thumbnails */
+.box {
+    width: 20vw;
+    height: 20vh;
+    background-color: #ffffffd6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    position: relative;
+}
+
+.box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-size: cover;
+    background-position: center;
+}
+
+.bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white; /* Ensure text is readable */
+    padding: 10px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+    font-size: calc(.5vw + .5vh);
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: -2vh;
+    right: 0;
+    color: white; /* Ensure text is readable */
+    padding: 10px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+    font-size: calc(.5vw + .5vh);
+}
+
+.img{
+  width: 50vw; /* Adjust the width factor as needed */
+  max-width: 100%; /* Ensure the image does not exceed its original size */
+  height: auto; /* Maintain the aspect ratio */
+}
+
+
+/* Search and dropdown */
+.category-filter {
+    float: left;
+    width: 20%; /* Adjust the width as needed */
+    margin-right: 20px;
+    color: ghostwhite;
+  }
+
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .category-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .category-list li {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  
+  .category-list li .arrow {
+    margin-right: 10px;
+    transition: transform 0.3s;
+  }
+  
+  .category-list li .arrow.down {
+    transform: rotate(90deg);
+  }
+  
+  .subcategory-list {
+    list-style-type: none;
+    padding-left: 40px;
+    display: none; /* Ensure subcategories are collapsed initially */
+  }
+  
+  .category-list a {
+    text-decoration: none;
+    color: ghostwhite;
+    font-weight: bold;
+  }
+
 body {
     font-family: "Noto Sans";
     background-color:#3A3B3C;
     color:ghostwhite;
     padding: 1vw;
+}
+
+.center {
+    text-align: center;
+    max-width: 60vw;
+    margin: 0 auto; /* Center the container */
 }
