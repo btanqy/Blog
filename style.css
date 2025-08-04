@@ -174,3 +174,14 @@ body {
     max-width: 60vw;
     margin: 0 auto; /* Center the container */
 }
+
+.video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.video-container video {
+  max-width: 100%;
+  height: auto;
+}
