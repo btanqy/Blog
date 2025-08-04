@@ -1,20 +1,11 @@
 [
   {
-    "title": "1-24",
-    "date": "2025-01-24",
-    "category": "Tech",
-    "subcategory": "Raspberry Pi",
-    "preview": "Exploring Python on the Pi.",
-    "thumbnail": "../2025/Images/explosion.png",
-    "url": "../2025/First Post.html"
-  },
-  {
-    "title": "1-24",
-    "date": "2025-01-24",
-    "category": "Tech",
-    "subcategory": "Raspberry Pi",
-    "preview": "Exploring Python on the Pi.",
-    "thumbnail": "../2025/Images/explosion.png",
-    "url": "../2025/First Post.html"
+    "title": "Budget Custom Keyboard",
+    "date": "3-25-25",
+    "category": "Keyboards",
+    "subcategory": "",
+    "preview": "Powered by an RP2040 using QMK",
+    "thumbnail": "../2025/Images/Budget Custom Keyboard/",
+    "url": "../2025/Budget Custom Keyboard.html"
   }
 ]
