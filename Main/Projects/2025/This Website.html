@@ -52,7 +52,58 @@
         </p>
       </h3>
 
+      Originally, this website was meant to be dynamic and automatically update itself when uploading new pages. I am not a computer science major, and I have no intention of being proficient especially in web development, so I turned to a friend who suggested using Node.js. I completely ignored them and tried to do the entire website in PHP, which led to a series of events that eventually led me to create a static website with some Javascript, hosted on my own machine instead. Here's a picture of my workflow, making this post on VSCode. <br \> <br \> 
+
+      <img
+        src="Images/This Website/edits.png"
+        class="img"
+        alt=""
+      /><br \> <br \> 
+
+      My original idea for the website was for it to have dynamic elements included, ranging from automatically updating to sorting by recent to viewcount. However, by starting with learning PHP (and by learning, I mean using ChatGPT to guide me through most of it), I found out that there were a lot of security issues and complications with having to run this website on my own computer. Therefore, I tried to use FreeProHost to host my PHP website for free, which was abysmal in terms of performance. This led to extra complications with having to both satisfy the dynamic, performance, and security requirements for this website.<br \> <br \> 
+
+      Therefore, the solution to this was to host this over my own device. This is a Raspberry Pi Zero 2 W, which can run Bookworm (Debian). By having a full blown Linux OS, there is much lower risk with hosting issues, as well as have adequate performance with the Pi Zero 2 W's 1Ghz, 500MB of RAM, and could scale storage of up to 256GB (currently using 16GB). <br \> <br \> 
+
+      <img
+        src="Images/This Website/zero.JPG"
+        class="img"
+        alt=""
+      />
+      <br \> <br \> 
+
+      However, setting up web hosting on a Pi Zero 2 W was a nightmare, not to mention costly. I wanted to be able to program and set up the Pi Zero 2 W headlessly (without peripherals). In order to do so, I had to first flash the Lite OS (no desktop) onto a 16GB class 10 SD card using Raspberry Pi Imager 1.9.5. I then inputted my WiFi settings and enabled SSH. However, enabling SSH also required me to have a username and password, which I set. Note that this password was the reason why this project was a nightmare. <br \> <br \> 
+
+      At this point, I should have been able to run:<br \>
       
+      <div class="code">
+        ssh pi@raspberrypi.local
+      </div><br \>
+
+      into the command prompt to connect to my Pi Zero 2 W over WiFi, which didn't work. No matter what I tried - reconfiguring the WiFi to split into separate 2.4GHz and 5GHz bands, manually enabling SSH and automatically connecting to WiFi, trying higher power ports (instead of 5V 500mA USB ports), all of it didn't do anything to get my Pi Zero 2 W to connect to WiFi. <br \> <br \> 
+
+      So I gave up on a headless setup, and folded to buy a mini HDMI port and mini USB to USB converter to plug it into monitor and keyboard with the desktop version of the software to check what was wrong. Here's a picture of the USB converter which I thought looked kind of funny. <br \> <br \> 
+
+      <img
+        src="Images/This Website/converter.JPG"
+        class="img"
+        alt=""
+      />
+      <br \> <br \> 
+
+      Turns out, nothing was wrong with the Pi. The desktop version booted up fine, and I could manually connect to WiFi. Since I had an HDMI cable anyway, I reuploaded the lite OS to try and debug the Pi through system prmopts. Through countless hours of scrounging around for an answer, I found out that the Pi doesn't log you in automatically. Therefore, every single time I tried to boot up the Pi, it was waiting for a keyboard input to log into before it could connect to WiFi. I actually spent months trying to figure this out - WHY WOULDNT THE PI NOT TRY TO CONNECT TO WIFI FIRST BEFORE LOGGING IN IF I HAVE SSH ENABLED? Anyways, here is the solution: <br \>
+
+      <div class="code">
+        sudo raspi-config
+      </div><br \>
+
+      And enable auto-login. Anyways, with this set up, I could finally install nginx, git, and Cloudflare on my Pi to start hosting my website. Nginx hosts html pages, but not PHP. Since I was frustrated trying to use PHP, I did convert the entire website from PHP to html to make my life easier down the road. I could then git clone my repository in to <div class="code">
+        /var/www/html
+      </div> and was able to follow generic instructions online to set up my website. <br \><br \>
+
+      Going back to needing Cloudflare - because of public WiFi, or in particular, eduroam for when I'm at school, there isn't a way for the Pi to host since port forwarding isn't allowed. A solution to that is through Cloudflare tunnels, which is a service that bypasses the need to port forward entirely. Again, by following generic instructions online for setting up Cloudflare tunnels on the Pi, I finally have my website on my domain. One thing I will note is that instead of using localhost, I had to end up using 127.0.0.1 in order for Cloudflare to find the nginx website. <br \><br \>
+
+      All in all, I learned a lot by doing this project. However, I'm ashamed to spend so much money on something that was supposed to be a budget project. My total bill came out to be $36, with the $10/year domain name included. 
+
 
 
   </body>
