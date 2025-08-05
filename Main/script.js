@@ -13,16 +13,19 @@ fetch('posts.json')
 
     const catList = document.getElementById('categoryList');
     for (const category in categories) {
-      const li = document.createElement('li');
-      li.innerHTML = `
-        <span class="arrow">&#9654;</span>
-        <a href="javascript:void(0);" onclick="filterByCategory('${category}')">${category}</a>
-        <ul class="subcategory-list" style="display:none;">
-          ${[...categories[category]].map(sub => `<li><a href="javascript:void(0);" onclick="event.stopPropagation(); filterByCategory('${sub}')">${sub}</a></li>`).join('')}
-        </ul>`;
-      li.onclick = () => toggleSubcategories(li);
-      catList.appendChild(li);
-    }
+  if (!category || category.trim() === '') continue; // skip empty category names
+
+  const li = document.createElement('li');
+  li.innerHTML = `
+    <span class="arrow">&#9654;</span>
+    <a href="javascript:void(0);" onclick="filterByCategory('${category}')">${category}</a>
+    <ul class="subcategory-list" style="display:none;">
+      ${[...categories[category]].map(sub => `<li><a href="javascript:void(0);" onclick="event.stopPropagation(); filterByCategory('${sub}')">${sub}</a></li>`).join('')}
+    </ul>`;
+  li.onclick = () => toggleSubcategories(li);
+  catList.appendChild(li);
+}
+
 
     // Render boxes
     const wrap = document.getElementById('boxWrap');
@@ -39,11 +42,11 @@ fetch('posts.json')
 
       div.innerHTML = `
         <div class="bottom-left">
-          <h2>${post.title}</h2>
-          <p>${post.preview}</p>
+          <h1>${post.title}</h1>
+          <h3>${post.preview}</h3>
         </div>
         <div class="bottom-right">
-          <h4>${post.date}</h4>
+          <h2>${post.date}</h2>
         </div>
       `;
       wrap.appendChild(div);

@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Budget Custom Keyboard",
+    "date": "3-25-25",
+    "category": "Keyboards",
+    "subcategory": "",
+    "preview": "Powered by an RP2040 using QMK",
+    "thumbnail": "Main/Projects/2025/Images/Budget Custom Keyboard/finished.JPG",
+    "url": "Main/Projects/2025/Budget Custom Keyboard.html"
+  },
+  {
+    "title": "First Post",
+    "date": "3-14-25",
+    "category": "",
+    "subcategory": "",
+    "preview": "This website and me!",
+    "thumbnail": "Main/Blog/2025/Images/First Post/selfie.JPG",
+    "url": "Main/Blog/2025/First Post.html"
+  },
+    {
+    "title": "This Website",
+    "date": "8-5-25",
+    "category": "",
+    "subcategory": "",
+    "preview": "How I put this website together",
+    "thumbnail": "Main/Projects/2025/Images/This Website/zero.JPG",
+    "url": "Main/Projects/2025/This Website.html"
+  }
+]

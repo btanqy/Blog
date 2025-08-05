@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script>
-      fetch("/Main/banner.html")
-        .then((res) => res.text())
-        .then((data) => document.write(data));
-    </script>
+    <!-- External JS, defer is fine here -->
+    <script defer src="home.js"></script>
   </head>
   <body>
+    <!-- Container where banner.html will be loaded -->
+    <div id="banner-container"></div>
+    <div id="boxHome"></div>
+
     <!-- Page content below -->
+
+    <!-- Banner-loading script (runs after DOM is available) -->
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        fetch("/Main/banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-container").innerHTML = data;
+          })
+          .catch((err) => console.error("Error loading banner:", err));
+      });
+    </script>
   </body>
 </html>
