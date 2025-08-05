@@ -1,11 +1,17 @@
+function parseDate(dateStr) {
+  const [month, day, year] = dateStr.split('-');
+  return new Date(`20${year.padStart(2, '0')}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
+}
+
 fetch('posts.json')
   .then(res => res.json())
   .then(posts => {
-    // Sort by date descending
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // Sort by descending parsed date
+    posts.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 
     // Render boxes
     const wrap = document.getElementById('boxHome');
+    wrap.innerHTML = '';
     posts.forEach(post => {
       const div = document.createElement('div');
       div.className = 'home';
