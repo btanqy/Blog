@@ -119,12 +119,21 @@
 }
 
 .bottom-left {
-  font-size: calc(1vw + 2vh);
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  align-items: flex-start; /* align text left */
+  gap: 0.3em; /* space between title and preview */
+  margin: 0;
+  padding: 0;
 }
+
 
 .bottom-left-small {
   font-size: calc(0.7vw + 1vh);
+  margin: 0;
+  padding: 0;
 }
+
 
 .bottom-right {
   font-size: calc(0.8vw + 1vh);
