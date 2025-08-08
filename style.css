@@ -125,7 +125,7 @@
 }
 
 .bottom-left-small {
-    font-size: calc(1vw + 1vh);
+    font-size: calc(1vw + 2vh);
 }
 
 .bottom-right {
@@ -136,6 +136,30 @@
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
     font-size: calc(1vw + 1vh);
+}
+
+.bottom-left-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white; /* Ensure text is readable */
+    padding: 10px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+    font-size: calc(1vw + 1.5vh);
+}
+
+.bottom-left-small-box {
+    font-size: calc(0.5vw + 1vh);
+}
+
+.bottom-right-box {
+    position: absolute;
+    bottom: 0vh;
+    right: 0;
+    color: white; /* Ensure text is readable */
+    padding: 10px; /* Adjust as needed */
+    margin: 0; /* Remove default margin */
+    font-size: calc(0.5vw + 1vh);
 }
 
 .img{

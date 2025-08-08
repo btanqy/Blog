@@ -41,12 +41,14 @@ fetch('posts.json')
       div.onclick = () => window.location.href = post.url;
 
       div.innerHTML = `
-        <div class="bottom-left">
-          <h1>${post.title}</h1>
-          <h3>${post.preview}</h3>
+        <div class="bottom-left-box">
+          <p>${post.title}</p>
+          <div class="bottom-left-small-box">
+            <p>${post.preview}</p>
+          </div>
         </div>
-        <div class="bottom-right">
-          <h2>${post.date}</h2>
+        <div class="bottom-right-box">
+          <p>${post.date}</p>
         </div>
       `;
       wrap.appendChild(div);
