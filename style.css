@@ -61,18 +61,17 @@
 
 /* List of boxes + thumbnails */
 .box {
-    width: calc(90vw - 20vh);
-    height: calc(8vh + 3*5vw);
-    background-color: #ffffffd6;
-    text-shadow: 0 0 0;
-    display: flex;
-    flex-wrap: nowrap;
-    align-items: center;
-    border-radius: 10px;
-    transition: transform 0.2s, box-shadow 0.2s;
-    cursor: pointer;
-    position: relative;
-    margin-left: calc(10vw + 5vh);
+  position: relative;  /* keep for other absolute children if any */
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;  /* aligns items at bottom */
+  padding: 10px;  /* add padding inside box */
+  width: 50vw;
+  height: calc(8vh + 3*5vw); /* keep your height */
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.5s;
+  /* remove margin-left temporarily to check */
 }
 
 .box:hover {
@@ -92,20 +91,19 @@
 }
 
 .home {
-  width: 80vw;
-  height: calc(10vh + 4*5vw);
-  background-color: #ffffffd6;
-  text-shadow: 0 0 0;
+  margin: 0 auto;
+  position: relative;  /* keep for other absolute children if any */
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-end;  /* aligns items at bottom */
+  padding: 10px;  /* add padding inside box */
+  width: 80vw;
+  height: calc(8vh + 3*5vw); /* keep your height */
   border-radius: 10px;
-  transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
-  position: relative;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5vh;
+  margin-top: 3vh;
+  transition: transform 0.2s, box-shadow 0.5s;
+  /* remove margin-left temporarily to check */
 }
 
 
@@ -114,25 +112,34 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
 }
 
+.home-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
+    padding: 0px;
+    background-size: cover;
+    background-position: center;
+}
+
 .bottom-left {
     position: absolute;
     bottom: 0;
     left: 0;
-    color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(1vw + 2vh);
+    font-size: calc(2vw + 1.5vh);
 }
 
 .bottom-left-small {
-    font-size: calc(1vw + 2vh);
+    font-size: calc(1vw + 1vh);
 }
 
 .bottom-right {
     position: absolute;
-    bottom: -2vh;
+    bottom: -0.5vh;
     right: 0;
-    color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
     font-size: calc(1vw + 1vh);
@@ -142,10 +149,9 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(1vw + 2vh);
+    font-size: calc(1vw + 1.5vh);
 }
 
 .bottom-left-small-box {
@@ -154,12 +160,11 @@
 
 .bottom-right-box {
     position: absolute;
-    bottom: -2vh;
+    bottom: -0.5vh;
     right: 0;
-    color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(0.5vw + 0.5vh);
+    font-size: calc(0.5vw + 1vh);
 }
 
 .img{
