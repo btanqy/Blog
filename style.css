@@ -125,16 +125,16 @@
 }
 
 .bottom-left-small {
-    font-size: calc(1vw + 0.5vh);
+    font-size: calc(0.5vw + 0.5vh);
 }
 
 .bottom-right {
     position: absolute;
-    right: -1vh;
+    right: -2vh;
     color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(1vw + 0.5vh);
+    font-size: calc(0.5vw + 0.5vh);
 }
 
 .bottom-left-box {
