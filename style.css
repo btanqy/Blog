@@ -64,6 +64,8 @@
     width: calc(90vw - 20vh);
     height: calc(8vh + 3*5vw);
     background-color: #ffffffd6;
+    font-weight: normal;
+    text-shadow: 0 0 0;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
@@ -73,8 +75,6 @@
     cursor: pointer;
     position: relative;
     margin-left: calc(10vw + 5vh);
-    font-weight: normal;
-    text-shadow: 0 0 0;
 }
 
 .box:hover {
@@ -97,6 +97,8 @@
   width: 80vw;
   height: calc(10vh + 4*5vw);
   background-color: #ffffffd6;
+  font-weight: normal;
+  text-shadow: 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,8 +110,6 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 5vh;
-  font-weight: normal;
-  text-shadow: 0 0 0;
 }
 
 
