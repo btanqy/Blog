@@ -24,12 +24,12 @@ fetch('posts.json')
       div.innerHTML = `
         <div class="bottom-left">
           <p>${post.title}</p>
-        </div>
-        <div class="bottom-left-small">
-          <p>${post.preview}</p>
-        <div>
-        <div class="bottom-right">
-          <p>${post.date}</p>
+          <div class="bottom-left-small">
+            <p>${post.preview}</p>
+          </div>
+          <div class="bottom-right">
+            <p>${post.date}</p>
+          </div>
         </div>
       `;
       wrap.appendChild(div);
