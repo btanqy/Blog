@@ -22,14 +22,16 @@ fetch('posts.json')
       div.onclick = () => window.location.href = post.url;
 
       div.innerHTML = `
-      <div class="bottom-left">
-        <p>${post.title}</p>
-        <div class="bottom-left-small">
-          <p>${post.preview}</p>
+      <div class="box">
+        <div class="bottom-left">
+          <p>${post.title}</p>
+          <div class="bottom-left-small">
+            <p>${post.preview}</p>
+          </div>
         </div>
-      </div>
-      <div class="bottom-right">
-        <p>${post.date}</p>
+        <div class="bottom-right">
+          <p>${post.date}</p>
+        </div>
       </div>
     `;
 
