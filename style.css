@@ -61,17 +61,17 @@
 
 /* List of boxes + thumbnails */
 .box {
-  position: relative;  /* keep for other absolute children if any */
+  position: relative;
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;  /* aligns items at bottom */
-  padding: 10px;  /* add padding inside box */
-  width: 50vw;
-  height: calc(8vh + 3*5vw); /* keep your height */
+  align-items: flex-end;
+  padding: 10px;
+  width: calc(80vw - 15vh);
+  height: calc(8vh + 3*4vw);
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.5s;
-  /* remove margin-left temporarily to check */
+  margin-left: 10vw;
 }
 
 .box:hover {
