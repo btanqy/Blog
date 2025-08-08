@@ -61,19 +61,18 @@
 
 /* List of boxes + thumbnails */
 .box {
-    width: 50vw;
-    height: 30vh;
+    width: calc(90vw - 20vh);
+    height: calc(8vh + 3*5vw);
     background-color: #ffffffd6;
     display: flex;
-    font-weight: normal;
     flex-wrap: nowrap;
-    text-shadow: 0 0 0;
     align-items: center;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
     position: relative;
+    margin-left: calc(10vw + 5vh);
 }
 
 .box:hover {
@@ -94,18 +93,16 @@
 
 .home {
   width: 80vw;
-  height: 40vh;
+  height: calc(10vh + 4*5vw);
   background-color: #ffffffd6;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
-  text-shadow: 0 0 0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
   transition: transform 0.2s, box-shadow 0.2s;
   cursor: pointer;
   position: relative;
-  font-weight: normal;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5vh
@@ -124,7 +121,7 @@
     color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(.5vw + .5vh);
+    font-size: calc(0.5vw + 1vh);
 }
 
 .bottom-right {
@@ -134,7 +131,7 @@
     color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(.5vw + .5vh);
+    font-size: calc(0.5vw + 1vh);
 }
 
 .img{
@@ -146,8 +143,7 @@
 
 /* Search and dropdown */
 .category-filter {
-    float: left;
-    width: 20%; /* Adjust the width as needed */
+    flex: 0 0 auto;
     margin-right: 20px;
     color: ghostwhite;
   }
