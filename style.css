@@ -130,7 +130,7 @@
 
 .bottom-right {
     position: absolute;
-    right: -2vh;
+    right: -1vh;
     color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
