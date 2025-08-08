@@ -121,7 +121,11 @@
     color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(0.5vw + 1vh);
+    font-size: calc(1vw + 2vh);
+}
+
+.bottom-left-small {
+    font-size: calc(1vw + 1vh);
 }
 
 .bottom-right {
@@ -131,7 +135,7 @@
     color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(0.5vw + 1vh);
+    font-size: calc(1vw + 1vh);
 }
 
 .img{
