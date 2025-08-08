@@ -121,18 +121,18 @@
     color: white; /* Ensure text is readable */
     padding: 10px; /* Adjust as needed */
     margin: 0; /* Remove default margin */
-    font-size: calc(1vw + 2vh) !important;
+    font-size: calc(1vw + 2vh);
 }
 
 .bottom-left-small {
-    font-size: calc(0.5vw + 1vh) !important;
+    font-size: calc(0.5vw + 1vh);
 }
 
 .bottom-right {
     position: absolute;
     right: -1vh;
     color: white; /* Ensure text is readable */
-    padding: 10px; /* Adjust as needed */
+    /* padding: 10px; Adjust as needed */
     margin: 0; /* Remove default margin */
     font-size: calc(0.5vw + 0.5vh);
 }
