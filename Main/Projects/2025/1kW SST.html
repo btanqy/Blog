@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi!</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+    </div>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+        <h1>1kW Solid State Transformer</h1>
+        <br\><br\>
+
+        The motivation behind making this is to be able to have a modular supply to get high voltage AC and low voltage DC to test the other supplies and projects, or more specifically the farnsworth fusor and Class E plasma generator. Having swappable modules that can output and vary controlled voltage and current will be more helpful than using a generic variac or DC supply because of its high, but variable output. This project uses a dual active bridge for the topology. 
+        <br\><br\>
+
+        There are four sections of this project: PFC (power factor correction) design, SST (solid state transformer) Design, Control, and Implementation.
+
+        <h2>PFC Design</h2> 
+
+        In order to make an attempt to be in compliance with requirements for preventing harmonic distortions to mains from the rectification going into the DAB, I've opted for a CCM boost, totem pole topology. Here's the topology:<br\><br\>
+
+        Image Here <br\><br\>
+
+        
+        
+        
+    </div>
+  </body>
+</html>

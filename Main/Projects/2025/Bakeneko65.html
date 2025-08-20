@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi!</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+    </div>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+      <h1>Bakeneko65</h1>
+
+      <img src="Images/Bakeneko65/thumbnail.JPG" class="img" alt="" /> <br />
+      <br />
+
+      This is a 65% keyboard that I meant to be a very low budget keyboard. The
+      biggest reason why I called the other keyboard the "Budget Keyboard", and
+      not this one was because I believed that this one would not qualify to be
+      a daily driver. I was was sort of correct with this one, especially since
+      I felt like the acoustics and keycaps were very lacking. However, the
+      typing itself did feel pretty good in the end. <br />
+      <br />
+
+      Since this was a project for the 3D printing club, the first part
+      manufactured was the case. This was printed at the makerspace at UCLA,
+      with somewhat dubious print quality. I believe that it came out a little
+      less polished than I expected because of the high nozzle diameter, I think
+      somewhere around 0.4mm. For the case design, I cut out a hole in the
+      middle to put a copper weight, only to realize how unfeasable that would
+      be, and ended up not doing anything with it. I think it was because of
+      this hole that the acoustics were off, especially if sound was travelling
+      through the keyboard into the desk rather than reverberating back towards
+      the top. Here is the case: <br /><br />
+
+      <img src="Images/Bakeneko65/case.JPG" class="img" alt="" /> <br />
+      <br />
+
+      In this image above you will notice some additional parts, paint, and a
+      mat of polyurethane 0.25" foam. You can see the individual layers of the
+      print from the inside of the case, compared to the outside, which were
+      sanded for hours. I started from a higher grit just to get all of the
+      jagged edges smooth, before leveling everything out with high grit
+      sandpaper. Afterwards, we (the club) had primer and spray paint - I left
+      the inside semi-coated to show off the steps taken after everything was
+      done, layer by layer. The two additional black parts are for the USB, and
+      a spacer for an empty space on the keyboard. Do also look at the joints
+      for having a split case - they're not fantastic because of the print
+      quality, and can actually rattle quite a bit after putting the two split
+      parts together. <br />
+      <br />
+
+      <img src="Images/Bakeneko65/daughterboard.JPG" class="img" alt="" />
+      <br />
+      <br />
+      <img src="Images/Bakeneko65/connections.JPG" class="img" alt="" />
+      <br />
+      <br />
+
+      This is a soldered board that I used along with the daughterboard
+      necessary to be able to program and use the keyboard. I didn't buy the
+      board myself, so I didn't have the daughterboard and had to order one from
+      cannonkeys, which is the C5 JST variant. In order to program the keyboard,
+      I ended up doing some funky workarounds in order to now have to make a new
+      keyboard in QMK, and used QMK toolbox + QMK configurator instead. Since
+      the Bakeneko uses an ATMEGA32U4, I was able to use QMK configurator to
+      acquire my
+      <a
+        href="Images/Bakeneko65/kkatano_bakeneko65_rev3_layout_65_ansi_blocker_split_bs_2025-08-19.hex"
+        style="color: #ff6600"
+        >.hex file</a
+      >
+      and program to the keyboard by launching it into bootloader by plugging it
+      in and pressince ESC at the same time, installing drivers through QMK
+      toolbox, and flashing it. <br />
+      <br />
+
+      <img src="Images/Bakeneko65/stabilizer.JPG" class="img" alt="" />
+      <br />
+      <br />
+
+      This is the board almost after everything was soldered and put in,
+      including Gateron oil kings, Glorious stabilizers, and a cheap Chinese
+      knockoff set of gradient blue keycaps. The gaterons were not modified at
+      all, but the stabilizers definitely were. In fact, these stabilizers had
+      phenomenally low quality such that I had to put put in a lot of band-aid
+      mods and lube in order to make them at least somewhat bearable. Because of
+      the spacing between the stabilizer bar and joint that it snaps into was
+      far too large, everytime I hit the stabilizer it would rattle and feel
+      almost as if I was hitting a tactile switch rather than a linear. In order
+      to fix this, I put band-aids (yes, that's how much clearance it was
+      missing) in the little joint to fill it in. I then also lubed the sides
+      and band-aids, as well put in band-aids on the bottom of the stabilzers to
+      make them less harsh. Please never get these stabilizers. Here is an image
+      of them so you know to forever avoid them: <br /><br />
+
+      <img
+        src="Images/Bakeneko65/gloriousstabilizer.JPG"
+        width="300vw"
+        alt=""
+      />
+      <br />
+      <br />
+
+      Before assembling all of it together, I lined each of the parts up for fit
+      just in case. Turns out, the print for the case came out so poorly that
+      one side was actually higher than the other. My guess is that the printer
+      wasn't leveled before printing, since it was significant enough to warrant
+      9 layers of tape on the right side in order prevent bending when typing on
+      that side of the keyboard. Here is the little patch I made last minute:
+      <br /><br />
+
+      <img src="Images/Bakeneko65/levelshift.JPG" class="img" alt="" />
+      <br />
+      <br />
+
+      Lastly, here is the typing test. The video below is a test with no foam,
+      and the following one is with foam. Note that this build is relatively low
+      quality, partially due to the print, design, keycaps ($5), and combination
+      with oil kings (probably fine, but also probably an underlying reason why
+      I got them for free). <br /><br />
+
+      <div class="video-container">
+        <video controls>
+          <source src="Images/Bakeneko65/nofoam.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <br /><br />
+
+      And here is the one with foam: <br />
+      <br />
+
+      <div class="video-container">
+        <video controls>
+          <source src="Images/Bakeneko65/typing.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <br /><br />
+
+      Overall, I think I prefer the one with foam despite the higher pitched
+      typing, simply because it creates more of a cushion when typing as well as
+      dampens the sound to a bearable volume compared to no foam.
+    </div>
+  </body>
+</html>
