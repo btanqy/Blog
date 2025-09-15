@@ -1,2 +1,2 @@
 cd /var/www/html
-git pull origin main
+sudo git pull origin main
