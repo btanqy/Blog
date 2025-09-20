@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi!</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+    </div>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+      <h1>Making a Distiller</h1>
+
+      <img
+        src="Images/Making a Distiller/thumbnail.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+      <br /><br />
+
+      To be upfront with this project, this was mostly just a learning experience for someone who has barely ever worked with hardware. There were many atrocious ideas and errors, but in technicality, this distiller is actually functional. However, for many reasons, it is not practical or safe to use in almost any application.
+
+      <br /><br />
+
+      The original idea for this project stemmed from going to farmers market and always seeing at least a couple vendors selling rustic and exotic looking bars of soap. I would always pick one up and admire the way how soaps can be super vibrant, rustic, and give a real sense of having something homemade - completely opposite of regular, white bar soap found at Target or Walmart. The tradeoff is in price. Though there's nothing wrong with regular soap, it's no special or unique product which is why it comes in at around $2 a bar. On the other hand, the rustic bars come in at a whopping $10 per bar, are slightly larger in size, have funny colors and smells, and are often presented in cute packaging that makes customers feel like it's a completely worthwhile investment to upcharge basic necessities for 5 times the price. 
+
+      <br /><br />
+
+      Soap contains a couple key ingredients, namely oils, lye (sodium hydroxide), and water. Through combining and processing these ingredients, you acheive saponification with varying levels of quality depending on the process. In order to add scent though, soap requires essential oils or hydrosol, which is a distilled, infused water steamed out of plant matter. For example, making lavendar hydrosol is common and yields much more hydrosol compared to essential oil. Because extracting essential oils can be very tedious and expensive, using hydrosol is a very viable alternative, especially since the ingredients for soap call for water. The theory was that if I could build my own distiller, I could create any kind of soap I wanted. Some ideas I had in mind were pine needles, orange peels, and mint. 
+
+      <br /><br />
+
+      <h2>Building the Distiller</h2>
+
+      The distiller requires three main parts: the steaming chamber, an elevated platform for the plant matter, and a condenser. For the steaming chamber, I repurposed a massive pot and a heating element from an electric kettle.
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/outline.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/heatingelement.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      My thought process here was to drill out a hole that I could plaster with silicone for a water tight seal around the circular base of the heating element. The problem is, I don't have a drill. Instead, I used a dremel with a fiberglass blade that was perhaps the single decision that made this project a failure... in the video below you'll see how rough it is to make a circular hole using a dremel. Also, this is meant to be a hole on the lid of the pot to let steam escape into the condenser. 
+
+      <br /><br />
+
+      <div class="video-container">
+        <video controls preload="none">
+          <source
+            src="Images/Making a Distiller/dremel.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <br /><br />
+
+      And the result with the both together:
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/stacked.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      Notice how jagged the edges are. My thought process was that since the heating element wouldn't sit very well inside the hole without additional support, silicone wouldn't be a good option. In the end, I chose to use epoxy resin for it's rigidity after cure that would make it leak proof. But the big issue with resin that I didn't account for was it's volatility to heat. When exposed to high temperatures, resin tends to crack and release fumes that was one of the key reasons why this project probably won't ever be used practically. If I had instead used silicone, which probably would have gotten a could seal anyways without having to worry about high temperatures, I could have been able to extract some usable hydrosol. If there is a way to reliably remove large quantities of epoxy, maybe this project could be salvaged in the future.
+      <br /><br />
+
+      I started with securing the heating element inside of the pot. Because of the shape of the hole and the weight distribution of the heating element I had to carefully apply half hardened epoxy for the perfect putty-like consistency to seal up the gap. 
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/heatingset.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      Additionally, I had to use extra supports by having a stack of popsicle sticks on the inside of the pot to make sure the heating element wouldn't collapse. 
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/heatinginsideset.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      Next up was setting up the path for the steam to travel through the condenser. For maximum heat transfer in order to cool down the steam to below 100C, I used a copper pipe from home depot thinking that I could bend it manually into a coil and make a swan neck shape to the top of the lid. I ended up using a type M pipe not meant for manually bending. Because of the material itself and the thickness of the walls, the copper pipe just ended up crimping everywhere when bending it, even though I filled up the entire tube packed densely with salt to distribute the force. Here's the catastrophe: 
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/thickcopper.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      And a closeup of copper pipe where it not just crimped, but broke: 
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/broken.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      Instead, I ended up using an annealed, 3/8" copper tube which proved much more malleable and easily bendable than the type M pipe. 
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/annealed.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      I was then able to bend this piece into the shape I wanted as well by filling it up densely with salt to avoid crimping. 
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/bentcopper.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      Next up was attaching the copper pipe to the lid. This is another major reason why I wanted to use epoxy. With soft silicone, there may be too much play and allow the heavy pipe to break off from the lid even after setting. With the epoxy, I simply coated part of the pipe and the top of the lid with half hardened epoxy to try and maintain some support.
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/epoxylidon.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      However, the level of epoxy was so thin that it immediately cracked after waiting a couple days for it to cure. My second attempt was to build a small cup surrounding the pipe in order to maximize surface area, and this actually worked! I was pretty happy with the results, and no epoxy made its way inside of the pipe for either attempt. 
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/setting.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      To support the pipe, I knew I needed some sort of conical structure to hold the coil. I ended up choosing a galvanized steel fence, cutting it to size, and stuffing it inside the coil, which worked surprisingly well. I don't have a picture of it, but I also made a small platform that could sit inside the pot and suspend the plant matter above the water using the same steel fence.
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/thumbnail.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      And now for testing! Plugging it in, I managed to get a rolling boil. 
+
+      <br /><br />
+
+      <div class="video-container">
+        <video controls preload="none">
+          <source
+            src="Images/Making a Distiller/boiling.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <br /><br />
+
+      To maintain the correct internal pressure and temperature to allow the steam to carry the aromatics of the plant matter through the tube whilst still allowing enough time for the steam to condense before exiting the tube, I made a very basic prototype using a Pi Pico, thermistor, and servo motor to control the temperature. By using a smart wall plug with a button to allow for turning mains on and off, I used the pico to toggle the plug when reaching 150F and 130F. 
+
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/electronics.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      The stepper is mounted (superglued) to a piece of wood that houses the plug. Pretty crude, but it actually works quite well.
+
+      <br /><br />
+
+      <div class="video-container">
+        <video controls preload="none">
+          <source
+            src="Images/Making a Distiller/stepper.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <br /><br />
+      
+      Please don't do what I did though. Because my heating element is connected to another part of the electric kettle I stripped out, I had to have exposed mains next to the most volatile part of my setup: the epoxy. Definitely could have electrocuted myself if disaster struck, but luckily, nothing happened. 
+
+      <br /><br />
+
+      <div class="video-container">
+        <video controls preload="none">
+          <source
+            src="Images/Making a Distiller/demo.mp4"
+            type="video/mp4"
+          />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <br /><br />
+
+      In the end, the epoxy couldn't handle the heat stress and eventually cracked. Luckily, this only happened the following morning before I plugged in any electronics.
+
+      <br /><br />
+
+      <img
+        src="Images/Making a Distiller/leaks.JPG"
+        class="img"
+        loading="lazy"
+        alt=""
+      />
+
+      <br /><br />
+
+      In conclusion, this project was fun and educational to make. Although I spent a decent amount of time and money just to build something that failed, it was fun working through a lot of the challenges. I am also pretty glad to know my major has nothing to do with this project, else I would be pretty worried about how poorly I'd be doing in the future!
+
+
+    </div>
+  </body>
+</html>
