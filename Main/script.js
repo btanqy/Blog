@@ -1,8 +1,13 @@
+function parseDate(dateStr) {
+  const [month, day, year] = dateStr.split('-');
+  return new Date(`20${year.padStart(2, '0')}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`);
+}
+
 fetch('posts.json')
   .then(res => res.json())
   .then(posts => {
     // Sort by date descending
-    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    posts.sort((a, b) => parseDate(b.date) - parseDate(a.date));
 
     // Populate category list
     const categories = {};
@@ -13,19 +18,18 @@ fetch('posts.json')
 
     const catList = document.getElementById('categoryList');
     for (const category in categories) {
-  if (!category || category.trim() === '') continue; // skip empty category names
+      if (!category || category.trim() === '') continue; // skip empty category names
 
-  const li = document.createElement('li');
-  li.innerHTML = `
-    <span class="arrow">&#9654;</span>
-    <a href="javascript:void(0);" onclick="filterByCategory('${category}')">${category}</a>
-    <ul class="subcategory-list" style="display:none;">
-      ${[...categories[category]].map(sub => `<li><a href="javascript:void(0);" onclick="event.stopPropagation(); filterByCategory('${sub}')">${sub}</a></li>`).join('')}
-    </ul>`;
-  li.onclick = () => toggleSubcategories(li);
-  catList.appendChild(li);
-}
-
+      const li = document.createElement('li');
+      li.innerHTML = `
+        <span class="arrow">&#9654;</span>
+        <a href="javascript:void(0);" onclick="filterByCategory('${category}')">${category}</a>
+        <ul class="subcategory-list" style="display:none;">
+          ${[...categories[category]].map(sub => `<li><a href="javascript:void(0);" onclick="event.stopPropagation(); filterByCategory('${sub}')">${sub}</a></li>`).join('')}
+        </ul>`;
+      li.onclick = () => toggleSubcategories(li);
+      catList.appendChild(li);
+    }
 
     // Render boxes
     const wrap = document.getElementById('boxWrap');
