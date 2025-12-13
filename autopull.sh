@@ -1,2 +1,1 @@
-cd /var/www/html
-sudo git pull
+sudo git -C /var/www/html pull
