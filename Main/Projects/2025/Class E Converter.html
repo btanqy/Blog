@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class E Power Converter</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+    </div>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+      <h1>Class E Converter</h1>
+
+      <img src="Images/Class E Converter/assembled.JPG" class="img" alt="" />
+    </br></br>
+
+    This is my high voltage project! I've been working on this for over half a year, starting from simulation to designing boards to component selection to the current phase, which is testing and building a LUT for control. Although there were quite a few mistakes with design and a huge concern with efficiency, I'm still proud to say that I was able to (for now) nearly acheive a step up ratio of 50 with ZVS.
+
+    </br></br>
+
+    The inspiration and necessity for building this converter stemmed from the power electronics lab needing a high voltage supply. Since the load was a piezo, I chose the class E topology because of its high efficiency and frequency. I was able to get by with the switching frequency 1MHz, which meant my inductor, choke, and transformer selection could include a wider variety of ferrite cores for component choice. 
+
+    <h2> Design in Simulation </h2>
+
+    <img src="Images/Class E Converter/simulation.png" class="img" alt="" />
+    </br></br>
+
+    My lab gave me a license to PLECs, which is a simulator specifically tailored towards desigining power electronics. Compared to other software such as LTSpice, I have noticed that PLECs is significantly faster, but also lacks a lot of community support, since it can't import models like from PSpice. The converter has a couple key components: the inverter, matching network, compression, and multiplier. 
+
+    </br></br>
+
+    Since the class E topology is resonant, the efficiency can theoretically be 100% because zero volt switching (ZVS) can be acheived. However, a consequence of this means that the converter is very sensitive to variations in the load, unlike other topologies like an LLC converter. In order to better match the load, a somewhat arbitrary matching network is chosen to transform the input impedance to match a ~1kohm load. For making the converter broadband, the load compression technique is used by taking the ouput of the matching network to two branches of equal impedance and opposite polarity impedance. By increasing the impedance of the load compression network, the bandwidth is increased at the cost of lower peak gain. Therefore, a high turn ratio and multiplier stage are necessary to acheive high voltage.
+
+    </br></br>
+
+    Since the tank gain of the converter is roughly 2.5, a four turn transformer is used in the final design. However, the ratings do allow for a 10 turn transformer, which I hope to test in the future. Additionally, the Dickson multiplier takes an RF input and outputs 2N gain, where N is the number of stages. For my design, I chose a 6 stage design. Therefore, the total gain of the device should theoretically be around 60.
+
+    </br></br>
+
+    <img src="Images/Class E Converter/EPC2308.png" class="img" alt="" />
+    </br></br>
+
+    For device choice, the EPC2308 is chosen because of its superior rise time and wide bandgap, being a GAN device. Although there were some better switches available, the EPC2308 is a budget friendly device compared to some of the more performance-oriented devices, almost 4 times the price of the EPC2308. HOWEVER. I made a huge mistake choosing this, believing that heatsinking would be great because of the exposed source. THAT PAD IS NOT EXPOSED. IT IS ISOLATED BY GLASS. I'm really dissapointed since, since I bought copper and was ready to solder it straight to the heatsink, and now I'm stuck with this switch which has some difficulty staying cool without a heatsink during larger loads.
+
+    </br></br>
+
+    Although the switching frequency of 1MHz made it so that there would be more availability of ferrites, specifically Manganese-Zinc cores, the actual selection of cores were still fairly limited. I ended up choosing two Fair-Rite cores, the choke being a toroidal material 78 core, and the transformer being a toroidal material 79 core. Each respectively had Al = 2545 and 680 nH. Also, since the transformers are toroidal, I printed some bobbins in order to space the windings better.
+
+    </br></br>
+
+    <img src="Images/Class E Converter/transformers.JPG" class="img" alt="" />
+    </br></br>
+
+    <h2> Board Design </h2>
+
+    There are three boards: the inverter, multiplier, and switche load. Both the inverter and multiplier are here: 
+    </br></br>
+
+    <img src="Images/Class E Converter/boards.JPG" class="img" alt="" />
+    </br></br>
+
+    and the switche load board is not assembled yet. 
+
+    </br></br>
+
+    These boards are a little large, with the inverter being 130 x 80mm, which was a concern because excessive parasitics could affect the resonance significantly. In order to mitigate parasitics (but have a reasonable cost), I decided to get a 2 ounce copper, 2 layer board. In hindsight, I could have made the energy density much higher, but my priority was putting as many testpoints as possible to make testing easier on me. 
+
+    </br></br>
+
+    Some things I wish I had done better and forgot to do include mounting holes for the transformers, mounting holes for screws, better placement of testpoints, mounting holes for the heatsink, closer placement of each component, and routing. Although the ground loop isn't too bad, a lot of the logic passes under the choke and power traces, cutting some portion of the return path, especially since the board is two layer. 
+
+    </br></br>
+
+
+    <img src="Images/Class E Converter/boards.JPG" class="img" alt="" />
+    </br></br>
+
+    And here is the fully assembled converter: 
+    </br></br>
+
+
+    <img src="Images/Class E Converter/assembled.JPG" class="img" alt="" />
+    </br></br>
+
+
+    <h2> Testing the converter </h2>
+
+    Here's me at the test station!
+
+    </br></br>
+
+
+    <img src="Images/Class E Converter/selfie.JPG" class="img" alt="" />
+    </br></br>
+
+    Here are where the issues have been starting. Since the converter is meant to take an input of 3V, the resulting current for full load will be at 20A (for 60W). Therefore, the wire resistances are significant. Even just at 10W, the input of 3V dropped to 2.7V through the mounting posts after going through the banana wires. 
+
+    </br></br>
+
+    Despite this, I'm able to acheive ZVS. But what's more concerning is I can acheive ZVS at nearly any load. In fact, runnning the converter at 2V and 4V input run the same amount of power, which is also super excessive at open load (10W, but I'm expecting less than 2W).
+
+    </br></br>
+
+
+    <img src="Images/Class E Converter/zvs.png" class="img" alt="" />
+    </br></br>
+
+    The rise time seems to suffer a bit too, which is now at 4ms. 
+
+    </br></br>
+
+
+    <img src="Images/Class E Converter/rise.png" class="img" alt="" />
+    </br></br>
+    
+    
+    I think it might have to do with poor core and inductor selection rather than parasitics, since the resonant frequency shifted to 995kHz, and runs so much power. But if the issue were saturation, I really am clueless as to why ZVS is maintained. The next steps for testing this converter will be trying some different cores, as well as verifying each component with the LCR meter at 1MHz, which is something I should have checked beforehand. 
+
+    </br></br>
+
+    Some additinal next steps also include using the controller, which is a Pi Pico 2 W, to run a TCP server to be programmed remotely, establishing control using multithreading (along with teh server), 3D printing a case to make the converter not look like it was put together using scraps, and applying a heatsink.
+
+
+    </div>
+  </body>
+</html>

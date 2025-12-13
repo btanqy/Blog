@@ -43,5 +43,14 @@
     "preview": "A highly customized keyboard",
     "thumbnail": "../2025/Images/Showdown/finished.JPG",
     "url": "../2025/Showdown.html"
+  },
+    {
+    "title": "Class E Converter",
+    "date": "12-12-25",
+    "category": "",
+    "subcategory": "",
+    "preview": "For high voltage step up",
+    "thumbnail": "../2025/Images/Class E Converter/assembled.JPG",
+    "url": "../2025/Class E Converter.html"
   }
 ]

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DJ Controller</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+    </div>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+    <h1>DJ Controller</h1>
+
+    <h3>
+        <p>
+          <a
+            href="https://github.com/btanqy/DJ-Controller"
+            target="_blank"
+            style="color: #ff6600"
+          >
+            Project on Github
+          </a>
+        </p>
+      </h3>
+
+    I've always wanted to try DJing. The way DJs can seamlessly stitch together music, no matter the genre, tempo, or key, is awesome, and I want to be awesome like them too. I have no other reason for building this. 
+
+    <h2>The Design</h2>
+
+    One beginner controller that based this project off of is the Pioneer FLX4. </br></br>
+
+    <img
+        src="Images/DJ Controller/flx4.jpg"
+        class="img"
+        loading="lazy"
+        alt=""
+    />
+
+    </br></br>
+
+    The controller features two channels, each with 8 pads, 8 buttons, 6 potentiometers, and 2 sliders (+1 fader shared between both channels), and a jogwheel. In order to support this many inputs, it isn't hard to multiplex or build a matrix - rather, it would be very practical and possible to increase the number of functions given a reasonably fast microcontroller with many pins. To configure this, I referenced <a
+            href="https://github.com/shanteacontrols/OpenDeck"
+            target="_blank"
+            style="color: #ff6600"
+          >
+          OpenDeck
+        </a>, a programming-free solution that supports the RP2040 and custom hardware. Instead of using proprietary controller software, OpenDeck's use of MIDI commands gives a basic, but effective solution to DJ with programs such as Mixxx. Following building the software, I designed the boards and the case. 
+
+    <h2>OpenDeck Setup</h2>
+
+    Most of the <a
+            href="https://github.com/shanteacontrols/OpenDeck/wiki/Building-the-OpenDeck-firmware"
+            target="_blank"
+            style="color: #ff6600"
+          >
+          instructions
+        </a> are on the OpenDeck wiki, so I won't be redundant with those. But since I'm not great with linux, I will explain how I had to configure my set up. 
+
+    </br></br>
+
+    Although it clearly stated that OpenDeck was only supported on Ubuntu, I decided to try and set it up through WSL to avoid installing a virtual machine with Ubuntu. I was able to get the steps to work up to the step, where Visual Studio Code prompted me to "Reopen in Container", at which point it failed because there was an error with the mount. I couldn't really find any resources online, and GPT was no use in fixing the issue. 
+
+    </br></br>
+
+    So I installed Ubuntu onto a virtual machine using VMWare. The first time I tried this, I left everythign default and bricked the virtual machine because I completely ran out of storage (20GB). My second time, everything was also left default except for changing the disc size to 40GB. After running some commands - <div class="code">sudo apt update</div>, and <div class="code">sudo apt upgrade</div>, and <div class="code">sudo apt install build-essential</div>, I had to install Docker-CE. I followed instructions exactly from <a
+            href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-22-04"
+            target="_blank"
+            style="color: #ff6600"
+          >
+          here (steps 1 and 2)
+        </a>
+    I then cloned OpenDeck's repository, installed vscode through the .deb package online, install the remote development extension, cd into the repository, and opened vscode with <div class="code">code .
+    </div>. I then added the Remote Development extension and pressed the "Reopen in container" button.
+
+    </br></br>
+
+    From here, I kept on getting errors saying that a mount configuration was invalid. For about a week, I tried to figure out what exactly was going wrong, and to be honest, I still don't know what was wrong initially. But here are the steps that got it working.
+    </br>
+    1. named my user "ubuntu"</br>
+    2. ran <div class="code">touch ~/.gitconfig</div> in the home directory (not repo directory)</br>
+    3. run into several issues, including crashing, infinite buffering, and just closed out of vscode when it happened</br>
+    4. now it works!
+
+    </br></br>
+
+    I genuinely don't know and don't want to figure out why that works - by this point, I've gone through roughly 100GB of installations trying different combinations and methods. I just want to keep this now that it works. Moving on, I created my configuration .yml file, found on the <a
+            href="https://github.com/btanqy/DJ-Controller"
+            target="_blank"
+            style="color: #ff6600"
+          >
+            github
+          </a>. From here, all I needed to do was upload the uf2 file to the Pi Pico, which is well documented online everywhere. 
+
+    </br></br>
+
+    <h2>Controller Layout</h2>
+
+    Although referenced mostly on the FLX4, this is the layout that I was planning to use: </br></br>
+
+    <img
+        src="Images/DJ Controller/sketch.png"
+        class="img"
+        loading="lazy"
+        alt=""
+    />
+
+    </br></br>
+
+    This is a total of 16 pads, 16 buttons, 12 potentiometers, 5 sliders, and 2 jogwheels. Since the pads won't have any velocity functionality, they will be treated like buttons, totaling to 32 total. OpenDeck supports a matrix mode using a shift register and decoder
+    </div>
+  </body>
+</html>
