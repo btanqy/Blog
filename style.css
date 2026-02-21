@@ -267,6 +267,14 @@ body {
   border-radius: 1vw;
 }
 
+.row {
+    display: flex;
+    gap: 2vw;
+}
+.row img {
+    width: 48%;
+}
+
 
 
 h1, h2, h3, h4, h5, h6 {

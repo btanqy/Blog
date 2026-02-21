@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hi!</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+    </div>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+    <h1>Demo Fusor</h1>
+
+    Since I'm in my senior year of being an undergrad, I decided this year would be the year I have a serious just-for-fun project. I present: my demo fusor! <br/><br/>
+
+    Is what I would have said if it were finished. This post will get updated as it is constructed, annd will hopefully by finished the end of the spring quarter. <br/><br/>
+
+    <h2>Background</h2>
+
+    The purpose of a demo fusor is in the name: to demonstrate nuclear fusion. Nuclear fusion occurs when the nuclei of two atoms fuse to form a heavier atom while simultaneously releasing a huge amount of energy from emitting neutrons. <br/><br/>
+
+    Fusion occurs in a plasma - a cloud of ionized gas with net zero charge. In the demo fusor, a very high DC voltage generates the plasma by conduction of electrons through air. The demo fusor leverages this electron conduction by directing electron flow through a negatively biased, circular grid towards the grounded chamber walls. <br/><br/>
+
+    A reference image will be inserted here in the future.<br/><br/>
+
+    In the generated plasma, an equal amount of air atoms will have positive charge, which also experience electrostatic forces. High voltage accelerates the ions through the negatively biased grid and low enough pressure limits scattering (reduces acceleration). Plasma is sensitive to pressure by controlling the amount of collisions between air atoms. Too little pressure, and the rate of collisions between atoms will decrease and extinguish the plasma. Too high pressure, and energy is lost to collisions before plasma can be sustained. However, given enough thermal energy as well, the nuclear force overcomes electrostatic force and allows the fusion to occur. <br/><br/>
+
+    The triple produce is a characteristization of fusion described by density, temperature, and confinement time (how long energy stays in plasma before exiting) of the ions. Therefore, the lowest triple product and most widely used/practical fusion reaction (D-T) involves fusing Deuterium and Tritium (hydrogen isotopes), which produce Helium and an extra neutron. However, for an amateur fusor, only regular air will be used. <br/><br/>
+
+    In more commercial and academic settings, fusion is acheived through tokamaks and stellerators. Both utilize high-energy magnetic fields to increase the density of plasma, which increases reate of fusion. <br/><br/>
+
+    A reference image for the tokamak and stellerator wil be here in the future. <br/><br/>
+
+    <h2>Building the Fusor</h2>
+
+    The primary focus of building the demo fusor is the vacuum chamber. Generally, a two-stage vacuum pump should be used to create pressures low enough to sustain vacuum at medium voltage. In anticipation of having a single stage vacuum pump, I took care to (and to be honest, I mean overcomplicated the) design of the vacuum chamber to have minimal air leaks. The design uses a sanitary sight glass commonly used for viewing beer, pictured next to the variac.<br/><br/>
+
+    <img src="Images/Demo Fusor/temp.JPG" class="img" alt="" />
+    </br></br>
+
+    Two flanges (or caps) are fixed to the sight glass using tri-clamps with o-rings and vacuum grease between them. <br/><br/>
+
+    A picture of the assembly in the future. <br/><br/>
+
+    The two flanges both have feedthroughs - the top with the cross, and the bottom with the sparkplug. In order to draw, measure, and release vacuum, a hole is drilled and welded to the middle of the cross. In order to feed a high DC voltage to the grid, a sparkplug has alumina ceramic with high voltage ratings to prevent arcing. <br/><br/>
+
+    <img src="Images/Demo Fusor/cross_sparkplug.JPG" class="img" alt="" />
+    </br></br>
+
+    Drilling was an absolute nightmare. The machine shop at school was very skeptical of drilling out the flanges because they were made out of 304 steel. Using the lathe and an initial, pilot bit, we quickly realized this steel was taking material off the bit just as fast as the flange itself. Not to mention the unbearable noise it made while drilling... <br/><br/>
+
+    <img src="Images/Demo Fusor/lathe.JPG" class="img" alt="" />
+    </br></br>
+
+    <div class="video-container">
+        <video controls>
+          <source src="Images/Demo Fusor/top_drill.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+    </div>
+    <br /><br />
+
+    A brief two hours later of drilling, and now I have my top flange! In between sizes, we were able to find some carbide bits that sped up the drilling process significantly, shown here: <br/><br/>
+
+    <img src="Images/Demo Fusor/top_drilling.JPG" class="img" alt="" />
+    </br></br>
+
+    And here is how the cross fit after the drills: <br/><br/>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/top_cross.JPG" alt="">
+        <img src="Images/Demo Fusor/top_cross_flush.JPG" alt="">
+    </div> <br/><br/>
+
+    Similarly, the bottom flange for the sparkplug feedthrough was drilled using the lathe. However, manufacturing the bottom flange had many more difficulties - namely, creating taps for the sparkplug. Since the shop only had imperial taps, the closest I could get to M14 1.25 was a 9/16 18 tap. Although the tap itself came out fine, this took an eternity lining up since there was no tap guide available. In the pictures below, the bottom flange put in a vice with a V block and parallels, then drilled into with this comically large tap. <br/><br/>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/bottom_vice.JPG" alt="">
+        <img src="Images/Demo Fusor/bottom_tap.JPG" alt="">
+    </div> <br/><br/>
+
+    To no one's surprise, the sparkplug could only be screwed in 1 1/2 turns. Since the sparkplug will be welded to the bottom flange, we used the end mill to drill an additional 0.1" out of the 0.2" thick flange. <br/><br/>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/end_mill.JPG" alt="">
+        <img src="Images/Demo Fusor/end_mill_bottom.JPG" alt="">
+    </div> <br/><br/>
+
+    At first, we used a carbide end mill bit. <br/><br/>
+
+    <div class="video-container">
+        <video controls>
+          <source src="Images/Demo Fusor/drill_bottom_bit1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+    </div> <br/><br/>
+
+    Since the carbide bit wasn't drilling anywhere, the shop supervisor walks over to his personal tool drawer hands me a bit and says, "this is an $800 bit that a friend game to me, I hope it works". I am SWEATING. We both know that this 304 steel is horrific to drill into, but I feel exceptionally nervous because I don't want to ruin this bit. Here is the result: <br/><br/>
+
+    <div class="video-container">
+        <video controls>
+          <source src="Images/Demo Fusor/drill_bottom_bit1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+    </div> <br/><br/>
+
+    I take out the flange and bit off the vice and clean them off with acetone. The flange actually came out very nice! Clean edges, exact depth, no kinks. The bit, though. It's chipped. The shop supervisor tells me "you know, it's actually ok since I wanted to test this bit too, so this works out for the both of us". I 100% do not believe him. It's not just $800, but it was literally a gift. Know that there has been sacrifice made to build this fusor, and I will never be able to fix the damages done. Anyway here is the bottom flange... <br/><br/>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/sparkplug_bottom.JPG" alt="">
+        <img src="Images/Demo Fusor/drilled_bottom_sparkplug.JPG" alt="">
+    </div> <br/><br/>
+
+
+
+    </div>
+  </body>
+</html>
