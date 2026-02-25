@@ -43,7 +43,7 @@
       <img src="Images/Class E Converter/assembled.JPG" class="img" alt="" />
     </br></br>
 
-    This is my high voltage project! I've been working on this for over half a year, starting from simulation to designing boards to component selection to the current phase, which is testing and building a LUT for control. Although there were quite a few mistakes with design and a huge concern with efficiency, I'm still proud to say that I was able to (for now) nearly acheive a step up ratio of 50 with ZVS.
+    This is my high voltage project! I've been working on this for over half a year, starting from simulation to designing boards to component selection to the current phase, which is testing and building a LUT for control. Although there were quite a few mistakes with design and a huge concern with efficiency, I'm still proud to say that I was able to (for now) nearly achieve a step up ratio of 50 with ZVS.
 
     </br></br>
 
@@ -58,7 +58,7 @@
 
     </br></br>
 
-    Since the class E topology is resonant, the efficiency can theoretically be 100% because zero volt switching (ZVS) can be acheived. However, a consequence of this means that the converter is very sensitive to variations in the load, unlike other topologies like an LLC converter. In order to better match the load, a somewhat arbitrary matching network is chosen to transform the input impedance to match a ~1kohm load. For making the converter broadband, the load compression technique is used by taking the ouput of the matching network to two branches of equal impedance and opposite polarity impedance. By increasing the impedance of the load compression network, the bandwidth is increased at the cost of lower peak gain. Therefore, a high turn ratio and multiplier stage are necessary to acheive high voltage.
+    Since the class E topology is resonant, the efficiency can theoretically be 100% because zero volt switching (ZVS) can be acheived. However, a consequence of this means that the converter is very sensitive to variations in the load, unlike other topologies like an LLC converter. In order to better match the load, a somewhat arbitrary matching network is chosen to transform the input impedance to match a ~1kohm load. For making the converter broadband, the load compression technique is used by taking the ouput of the matching network to two branches of equal impedance and opposite polarity impedance. By increasing the impedance of the load compression network, the bandwidth is increased at the cost of lower peak gain. Therefore, a high turn ratio and multiplier stage are necessary to achieve high voltage.
 
     </br></br>
 
@@ -69,7 +69,7 @@
     <img src="Images/Class E Converter/EPC2308.png" class="img" alt="" />
     </br></br>
 
-    For device choice, the EPC2308 is chosen because of its superior rise time and wide bandgap, being a GAN device. Although there were some better switches available, the EPC2308 is a budget friendly device compared to some of the more performance-oriented devices, almost 4 times the price of the EPC2308. HOWEVER. I made a huge mistake choosing this, believing that heatsinking would be great because of the exposed source. THAT PAD IS NOT EXPOSED. IT IS ISOLATED BY GLASS. I'm really dissapointed since, since I bought copper and was ready to solder it straight to the heatsink, and now I'm stuck with this switch which has some difficulty staying cool without a heatsink during larger loads.
+    For device choice, the EPC2308 is chosen because of its superior rise time and wide bandgap, being a GAN device. Although there were some better switches available, the EPC2308 is a budget friendly device compared to some of the more performance-oriented devices, almost 4 times the price of the EPC2308. HOWEVER. I made a huge mistake choosing this, believing that heatsinking would be great because of the exposed source. THAT PAD IS NOT EXPOSED. IT IS ISOLATED BY GLASS. I'm really disappointed since, since I bought copper and was ready to solder it straight to the heatsink, and now I'm stuck with this switch which has some difficulty staying cool without a heatsink during larger loads.
 
     </br></br>
 
@@ -82,7 +82,7 @@
 
     <h2> Board Design </h2>
 
-    There are three boards: the inverter, multiplier, and switche load. Both the inverter and multiplier are here: 
+    There are three boards: the inverter, multiplier, and switched load. Both the inverter and multiplier are here: 
     </br></br>
 
     <img src="Images/Class E Converter/boards.JPG" class="img" alt="" />
@@ -126,7 +126,7 @@
 
     </br></br>
 
-    Despite this, I'm able to acheive ZVS. But what's more concerning is I can acheive ZVS at nearly any load. In fact, runnning the converter at 2V and 4V input run the same amount of power, which is also super excessive at open load (10W, but I'm expecting less than 2W).
+    Despite this, I'm able to achieve ZVS. But what's more concerning is I can achieve ZVS at nearly any load. In fact, running the converter at 2V and 4V input run the same amount of power, which is also super excessive at open load (10W, but I'm expecting less than 2W).
 
     </br></br>
 
@@ -147,7 +147,7 @@
 
     </br></br>
 
-    Some additinal next steps also include using the controller, which is a Pi Pico 2 W, to run a TCP server to be programmed remotely, establishing control using multithreading (along with teh server), 3D printing a case to make the converter not look like it was put together using scraps, and finding some way to screw on a heatsink.
+    Some additional next steps also include using the controller, which is a Pi Pico 2 W, to run a TCP server to be programmed remotely, establishing control using multithreading (along with teh server), 3D printing a case to make the converter not look like it was put together using scraps, and finding some way to screw on a heatsink.
 
 
     </div>
