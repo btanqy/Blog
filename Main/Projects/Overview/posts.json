@@ -56,11 +56,11 @@
   ,
     {
     "title": "Demo Fusor",
-    "date": "2-20-2026",
+    "date": "5-28-2026",
     "category": "Hardware",
     "subcategory": "",
-    "preview": "Under Construction!",
-    "thumbnail": "../2026/Images/Demo Fusor/temp.JPG",
+    "preview": "Building a vacuum chamber and making plasma",
+    "thumbnail": "../2026/Images/Demo Fusor/thumbnail.JPG",
     "url": "../2026/Demo Fusor.html"
   }
 ]

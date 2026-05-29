@@ -62,15 +62,6 @@
     "thumbnail": "Main/Projects/2025/Images/Class E Converter/assembled.JPG",
     "url": "Main/Projects/2025/Class E Converter.html"
   },
-  {
-    "title": "Demo Fusor",
-    "date": "2-20-26",
-    "category": "",
-    "subcategory": "",
-    "preview": "Under construction!",
-    "thumbnail": "Main/Projects/2026/Images/Demo Fusor/temp.JPG",
-    "url": "Main/Projects/2026/Demo Fusor.html"
-  },
    {
     "title": "The Casual Photography Experience",
     "date": "4-23-26",
@@ -79,5 +70,14 @@
     "preview": "Trying out photography with a DSLR",
     "thumbnail": "Main/Blog/2026/Images/The Casual Photography Experience/camera.JPG",
     "url": "Main/Blog/2026/The Casual Photography Experience.html"
+  },
+    {
+    "title": "Demo Fusor",
+    "date": "5-28-26",
+    "category": "",
+    "subcategory": "",
+    "preview": "Building a vacuum chamber and making plasma",
+    "thumbnail": "Main/Projects/2026/Images/Demo Fusor/thumbnail.JPG",
+    "url": "Main/Projects/2026/Demo Fusor.html"
   }
 ]

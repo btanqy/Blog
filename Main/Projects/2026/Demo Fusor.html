@@ -40,43 +40,44 @@
     <div class="center">
     <h1>Demo Fusor</h1>
 
-    Since I'm in my senior year of being an undergrad, I decided this year would be the year I have a serious just-for-fun project. I present: my demo fusor! <br/><br/>
-
-    Is what I would have said if it were finished. This post will get updated as it is constructed, and will hopefully by finished the end of the spring quarter. <br/><br/>
+    Since I'm in my senior year of being an undergrad, I decided this year would be the year I have a for-fun project. I present the demo fusor! <br/><br/>
 
     <h2>Background</h2>
 
-    The purpose of a demo fusor is in the name: to demonstrate nuclear fusion. Nuclear fusion occurs when the nuclei of two atoms fuse to form a heavier atom while simultaneously releasing a huge amount of energy from emitting neutrons. <br/><br/>
+    The purpose of a demo fusor is in the name: to demonstrate nuclear fusion. Nuclear fusion occurs when the nuclei of two atoms fuse to form a heavier atom while simultaneously releasing a huge amount of energy through radiating neutrons. In the equation below, two deuterium fuse to form helium, a neutron, and energy. <br/><br/>
 
-    Fusion occurs in a plasma - a cloud of ionized gas with net zero charge. In the demo fusor, a very high DC voltage generates the plasma by conduction of electrons through air. The demo fusor leverages this electron conduction by directing electron flow through a negatively biased, circular grid towards the grounded chamber walls. <br/><br/>
+    <img src="Images/Demo Fusor/deuterium equation.png" class="img" loading="lazy" alt="" />
+    </br></br>
 
-    A reference image will be inserted here in the future.<br/><br/>
+    In the demo fusor, fusion occurs in a plasma - a cloud of ionized gas with net zero charge. A roughly 10kV DC voltage generates the plasma, where electrons are free to travel from the negatively biased center electrode to the chamber walls. A plasma is sustained by tuning the pressure and voltage such that the mean free path (distance a particle hits before hitting another). If the mean free path is too high, energy is lost over the distance travelled and doesn't have enough energy to ionize another particle. If the mean free path is too low, particles might not accelerate fast enough to gain enough energy. A balance can be acheived by changing the electrode configuration, vacuum pressure, and electrode voltage. <br/><br/>
 
-    In the generated plasma, an equal amount of air atoms will have positive charge, which also experience electrostatic forces. High voltage accelerates the ions through the negatively biased grid and low enough pressure limits scattering (reduces acceleration). Plasma is sensitive to pressure by controlling the amount of collisions between air atoms. Too little pressure, and the rate of collisions between atoms will decrease and extinguish the plasma. Too high pressure, and energy is lost to collisions before plasma can be sustained. However, given enough thermal energy as well, the nuclear force overcomes electrostatic force and allows the fusion to occur. <br/><br/>
+    <img src="Images/Demo Fusor/drawing_labelled.png" class="img" loading="lazy" alt="" />
+    </br></br>
 
-    The triple produce is a characterization of fusion described by density, temperature, and confinement time (how long energy stays in plasma before exiting) of the ions. Therefore, the lowest triple product and most widely used/practical fusion reaction (D-T) involves fusing Deuterium and Tritium (hydrogen isotopes), which produce Helium and an extra neutron. However, for an amateur fusor, only regular air will be used. <br/><br/>
+    The triple produce is a characterization of fusion described by density, temperature, and confinement time (how long energy stays in plasma before exiting) of the ions. The lowest triple product involves fusing Deuterium and Tritium (hydrogen isotopes), which produce Helium, a neutron, and 17.6 MeV. However, for an amateur fusor, only regular air will be used. <br/><br/>
 
-    In more commercial and academic settings, fusion is achieved through tokamaks (left) and stellarators (right). Both utilize high-energy magnetic fields to increase the density of plasma, which increases rate of fusion. <br/><br/>
+    In more commercial and academic settings, fusion is achieved through tokamaks (left) and stellarators (right). Both utilize high-energy magnetic fields to increase the density of plasma. These are also characterized by the scientific gain Q, which is the ratio of output energy to energy used to heat and confine the fuel. For the demo fusor, the gain is very low and can never surpass 1 because the ions collide with the center electrode and dissipate heat. <br/><br/>
 
     <div class="row">
         <img src="Images/Demo Fusor/tokamak.JPG" loading="lazy" alt="">
         <img src="Images/Demo Fusor/stellarator.JPG" loading="lazy" alt="">
     </div> <br/><br/>
 
-    Another exciting method of fusion utilizes high power lasers (e.g. Nd:glass phosphate) by directing lasers toward a highly pressurized point of fuel omnidirectionally. This causes the fuel to heat up drastically, and given enough confinement time,heat, and high density, the lasers act as an ignition source for fusion to occur spontaneously. In 2013, the NIF (National Ignition Facility) was the first to make fusion net power positive. By 2022, the NIF was able to achieve an energy gain of 1.5. 
+    Another exciting method of fusion utilizes high power pulsed lasers (e.g. Nd:glass phosphate) by directing beams toward a highly pressurized point of fuel omnidirectionally. In 2013, the NIF (National Ignition Facility) was the first to make fusion net power positive by using lasers. As of April 2025, the NIF was able to achieve a Q of 4.13 for a yield of 8.6 MJ. Because of this, there are currently many startups exploring fusion energy, with one promising variation using Krypton Fluoride lasers.
 
     <h2>Building the Fusor</h2>
 
-    The primary focus of building the demo fusor is the vacuum chamber. Generally, a two-stage vacuum pump should be used to create pressures low enough to sustain vacuum at medium voltage. In anticipation of having a single stage vacuum pump, I took care to (and to be honest, I mean overcomplicated the) design of the vacuum chamber to have minimal air leaks. The design uses a sanitary sight glass commonly used for viewing beer, pictured next to the variac.<br/><br/>
+    The primary focus in building the demo fusor is the vacuum chamber. Generally, a two-stage vacuum pump should be used to create pressures low enough to sustain vacuum at medium voltage. I only have access to a single stage pump that theoretically should pump down to 40 micron. The design uses a sanitary sight glass commonly used for viewing beer, pictured next to the variac.<br/><br/>
 
-    <img src="Images/Demo Fusor/temp.JPG" class="img" loading="lazy" alt="" />
+    <img src="Images/Demo Fusor/full setup.jpg" class="img" loading="lazy" alt="" />
     </br></br>
 
-    Two flanges (or caps) are fixed to the sight glass using tri-clamps with o-rings and vacuum grease between them. <br/><br/>
-
-    A picture of the assembly in the future. <br/><br/>
-
-    The two flanges both have feedthroughs - the top with the cross, and the bottom with the sparkplug. In order to draw, measure, and release vacuum, a hole is drilled and welded to the middle of the cross. In order to feed a high DC voltage to the grid, a sparkplug has alumina ceramic with high voltage ratings to prevent arcing. <br/><br/>
+    Two flanges (or caps) are fixed to the sight glass using tri-clamps with o-rings and a thin layer of vacuum grease between them. </br></br>
+    
+    <img src="Images/Demo Fusor/disassembled.JPG" class="img" loading="lazy" alt="" />
+    </br></br>
+    
+    The two flanges are both drilled out - the top is fitted with the cross, and the bottom with the sparkplug. Both cross and sparkplug were later welded to each lid. In order to feed a high DC voltage to the grid, a sparkplug has alumina ceramic with high voltage ratings to prevent arcing. <br/><br/>
 
     <img src="Images/Demo Fusor/cross_sparkplug.JPG" class="img" loading="lazy" alt="" />
     </br></br>
@@ -89,7 +90,6 @@
     <div class="video-container">
         <video controls loading="lazy">
           <source src="Images/Demo Fusor/top_drill.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
     </div>
     <br /><br />
@@ -138,13 +138,51 @@
         </video>
     </div> <br/><br/>
 
-    I take out the flange and bit off the vice and clean them off with acetone. The flange actually came out very nice! Clean edges, exact depth, no kinks. The bit, though. It's chipped. The shop supervisor tells me "you know, it's actually ok since I wanted to test this bit too, so this works out for the both of us". I 100% do not believe him. It's not just $800, but it was literally a gift. Know that there has been sacrifice made to build this fusor, and I will never be able to fix the damages done. Anyway here is the bottom flange... <br/><br/>
+    I take out the flange and bit off the vice and clean them off with acetone. The flange actually came out very nice! Clean edges, exact depth, no kinks. The bit, though. It's chipped. The shop supervisor tells me "you know, it's actually ok since I wanted to test this bit too, so this works out for the both of us". I 100% do not believe him. It wasn't just $800, but it was a gift. There has been sacrifice made to build this fusor, and I will never be able to fix the damages done. Anyway here is the bottom flange... <br/><br/>
 
     <div class="row">
         <img src="Images/Demo Fusor/sparkplug_bottom.JPG" loading="lazy" alt="">
         <img src="Images/Demo Fusor/drilled_bottom_sparkplug.JPG" loading="lazy" alt="">
     </div> <br/><br/>
 
+    The next step was to pot the diodes and sheath (to prevent arcing from spark plug to chamber) to prevent arcing. Although we did technically have some decent spacing (roughly 10mm) between each diode, we still wanted to pot it to be safe. I ended up getting this <a
+      href="https://www.amazon.com/dp/B0FYFVYM36"
+      target="_blank"
+      style="color: #ff6600"
+    >
+    cheap, silicone epoxy
+    </a> from Amazon that semed like it would do the job. It didn't have any ratings, and I was assuming it would just work. Here is the disaster of a setup for potting each. Notice the vacuum chamber - it is vital that the epoxy gets degassed  in the chamberso no air bubbles will be trapped after mixing both parts. This is to prevent potential arcing. <br/><br/>
+
+    <img src="Images/Demo Fusor/potting setup.jpg" class="img" loading="lazy" alt="" />
+    </br></br>
+
+    And here are the before and afters of both the sheath and diodes: <br/><br/>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/grid with sheath.JPG" loading="lazy" alt="">
+        <img src="Images/Demo Fusor/potted sheath.JPG" loading="lazy" alt="">
+    </div> <br/>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/diodes.png" loading="lazy" alt="">
+        <img src="Images/Demo Fusor/potted diodes.JPG" loading="lazy" alt="">
+    </div> <br/><br/>
+
+    For the center grid electrode, a material had to be chosen that would be able to withstand the thermal energy (some electrodes can glow red hot and oxidize after a while) whilst not being impossible to work with. This decision ended up being stainless steel wire. However, stainless steel wire is not the easiest to work with - normal soldering won't work since the stainless steel won't alloy to it, and welding will just melt the wire completely. The solution was brazing, which involves using high heat to wet silver solder onto the wire. 
+
+    <div class="video-container">
+        <video controls loading="lazy">
+          <source src="Images/Demo Fusor/brazing.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <br /><br />
+
+    This took a lot of tries to get down right. The borax needs proper heat, or else the silver will melt off before the wire gets hot. Additionally, excessive heat can cause the borax to harden into a glassy substance, which makes it difficult for silver to come into contact with the wire. Afterwards, the oxides of the grid needed to be ground off, which was difficult with sandpaper and dremel. I found out that putting the grid in a vinegar solution helped soften the oxide, and that helped a lot with manually grinding it off later. Here's the grid sitting in vinegar solution: <br /><br />
+
+    <img src="Images/Demo Fusor/vinegar.JPG" class="img" loading="lazy" alt="" />
+    </br></br>
+
+    <h2>Testing the Fusor</h2>
 
 
     </div>
