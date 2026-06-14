@@ -40,39 +40,42 @@
     <div class="center">
     <h1>Demo Fusor</h1>
 
-    Since I'm in my senior year of being an undergrad, I decided this year would be the year I have a for-fun project. I present the demo fusor! <br/><br/>
+    In my senior year of being an undergrad, I decided that it was time for a purely for-fun project. I present the demo fusor! <br/><br/>
 
     <h2>Background</h2>
 
-    The purpose of a demo fusor is in the name: to demonstrate nuclear fusion. Nuclear fusion occurs when the nuclei of two atoms fuse to form a heavier atom while simultaneously releasing a huge amount of energy through radiating neutrons. In the equation below, two deuterium fuse to form helium, a neutron, and energy. <br/><br/>
+    The purpose of a demo fusor is in the name: to demonstrate nuclear fusion. Nuclear fusion occurs when the nuclei of two atoms fuse to form a heavier atom while simultaneously releasing a huge amount of energy through radiation, mostly through neutrons . In the equation below, two deuterium fuse to form helium, a neutron, and energy. <br/><br/>
 
     <img src="Images/Demo Fusor/deuterium equation.png" class="img" loading="lazy" alt="" />
     </br></br>
 
-    In the demo fusor, fusion occurs in a plasma - a cloud of ionized gas with net zero charge. A roughly 10kV DC voltage generates the plasma, where electrons are free to travel from the negatively biased center electrode to the chamber walls. A plasma is sustained by tuning the pressure and voltage such that the mean free path (distance a particle hits before hitting another). If the mean free path is too high, energy is lost over the distance travelled and doesn't have enough energy to ionize another particle. If the mean free path is too low, particles might not accelerate fast enough to gain enough energy. A balance can be acheived by changing the electrode configuration, vacuum pressure, and electrode voltage. <br/><br/>
+    In the demo fusor, fusion occurs in a plasma - a cloud of ionized gas with net zero charge. A roughly 10kV DC voltage is applied, where electrons are free to travel from the negatively biased center electrode to the chamber walls. During this travel, a higher concentration of electrons near the electrode collide with other atoms in the air, ionizing them and creating an avalanche of similar behavior to create a plasma. A plasma is sustained by tuning the pressure and voltage such that the mean free path (distance a electron hits before energizes another) is just right. If the mean free path is too high, energy is lost over the distance travelled and doesn't have enough energy to ionize another atom. If the mean free path is too low, electrons might not accelerate fast enough to gain enough energy for energizing another electron. A balance can be acheived by changing the electrode configuration, vacuum pressure, and electrode voltage. The Paschen's curve below describes some basic information on how to "strike" a plasma by exceeding the breakdown voltage. <br/><br/>
 
-    <img src="Images/Demo Fusor/drawing_labelled.png" class="img" loading="lazy" alt="" />
+    <img src="Images/Demo Fusor/paschens law.png" class="img" loading="lazy" alt="" />
     </br></br>
 
-    The triple produce is a characterization of fusion described by density, temperature, and confinement time (how long energy stays in plasma before exiting) of the ions. The lowest triple product involves fusing Deuterium and Tritium (hydrogen isotopes), which produce Helium, a neutron, and 17.6 MeV. However, for an amateur fusor, only regular air will be used. <br/><br/>
+    The triple product describes a plasma by density, temperature, and confinement time (how long energy stays in plasma before exiting) of the ions. Another way to think of temperature is just trying to increase the thermal energy of the electrons. When the triple product exceeds a threshold called the Lawson criterion, self-sustaining fusion is possible. The lowest Lawson criterion involves fusing Deuterium and Tritium (hydrogen isotopes), which produce Helium, a neutron, and 17.6 MeV. However, for an amateur fusor, only regular air will be used. Here is the Lawson criterion for different reactions. <br/><br/>
 
-    In more commercial and academic settings, fusion is achieved through tokamaks (left) and stellarators (right). Both utilize high-energy magnetic fields to increase the density of plasma. These are also characterized by the scientific gain Q, which is the ratio of output energy to energy used to heat and confine the fuel. For the demo fusor, the gain is very low and can never surpass 1 because the ions collide with the center electrode and dissipate heat. <br/><br/>
+    <img src="Images/Demo Fusor/lawson criterion.png" class="img" sloading="lazy" alt="" />
+    </br></br>
+
+    In more commercial and academic settings, fusion is achieved through tokamaks (left) and stellarators (right). Both utilize magnetic fields to increase the density of the plasma. These are also characterized by the scientific gain Q, which is the ratio of output energy to energy used to heat and confine the fuel. For the demo fusor, the gain can never surpass 1 because the collisions with the center electrode are lost to heat. <br/><br/>
 
     <div class="row">
         <img src="Images/Demo Fusor/tokamak.JPG" loading="lazy" alt="">
         <img src="Images/Demo Fusor/stellarator.JPG" loading="lazy" alt="">
     </div> <br/><br/>
 
-    Another exciting method of fusion utilizes high power pulsed lasers (e.g. Nd:glass phosphate) by directing beams toward a highly pressurized point of fuel omnidirectionally. In 2013, the NIF (National Ignition Facility) was the first to make fusion net power positive by using lasers. As of April 2025, the NIF was able to achieve a Q of 4.13 for a yield of 8.6 MJ. Because of this, there are currently many startups exploring fusion energy, with one promising variation using Krypton Fluoride lasers.
+    Another exciting method of fusion utilizes high power pulsed lasers (e.g. Nd:glass phosphate) by directing beams toward a highly pressurized point of fuel omnidirectionally. In 2013, the NIF (National Ignition Facility) was the first to make fusion net power positive by using lasers. As of April 2025, the NIF was able to achieve a Q of 4.13 for a yield of 8.6 MJ. Because of this, there are currently many startups exploring fusion energy, with one promising one using Krypton Fluoride lasers.
 
     <h2>Building the Fusor</h2>
 
-    The primary focus in building the demo fusor is the vacuum chamber. Generally, a two-stage vacuum pump should be used to create pressures low enough to sustain vacuum at medium voltage. I only have access to a single stage pump that theoretically should pump down to 40 micron. The design uses a sanitary sight glass commonly used for viewing beer, pictured next to the variac.<br/><br/>
+    The primary focus in building the demo fusor is the vacuum chamber. Generally, a two-stage vacuum pump should be used to create pressures low enough to sustain vacuum at medium voltage. I only have access to a single stage pump that theoretically should pump down to 40 micron though. Here is the schematic for building the chamber. <br/><br/>
 
-    <img src="Images/Demo Fusor/full setup.jpg" class="img" loading="lazy" alt="" />
+    <img src="Images/Demo Fusor/drawing_labelled.png" class="img" loading="lazy" alt="" />
     </br></br>
 
-    Two flanges (or caps) are fixed to the sight glass using tri-clamps with o-rings and a thin layer of vacuum grease between them. </br></br>
+    The design uses a sanitary sight glass commonly used for viewing beer. Two flanges (or caps) are fixed to the sight glass using tri-clamps with o-rings and a thin layer of vacuum grease between them. </br></br>
     
     <img src="Images/Demo Fusor/disassembled.JPG" class="img" loading="lazy" alt="" />
     </br></br>
@@ -106,7 +109,7 @@
         <img src="Images/Demo Fusor/top_cross_flush.JPG" loading="lazy" alt="">
     </div> <br/><br/>
 
-    Similarly, the bottom flange for the sparkplug feedthrough was drilled using the lathe. However, manufacturing the bottom flange had many more difficulties - namely, creating taps for the sparkplug. Since the shop only had imperial taps, the closest I could get to M14 1.25 was a 9/16 18 tap. Although the tap itself came out fine, this took an eternity lining up since there was no tap guide available. In the pictures below, the bottom flange put in a vice with a V block and parallels, then drilled into with this comically large tap. <br/><br/>
+    Similarly, the bottom flange for the sparkplug feedthrough was drilled using the lathe. I also decided to tap the bottom for the spark plug, but since the shop only had imperial taps, the closest I could get to M14 1.25 was a 9/16 18 tap. Although the tap itself came out fine, this took an eternity lining up since there was no tap guide available. In the pictures below, the bottom flange put in a vice with a V block and parallels, then drilled into with this comically large tap. <br/><br/>
 
     <div class="row">
         <img src="Images/Demo Fusor/bottom_vice.JPG" loading="lazy" alt="">
@@ -183,6 +186,7 @@
     </br></br>
 
     <h2>Testing the Fusor</h2>
+
 
 
     </div>
