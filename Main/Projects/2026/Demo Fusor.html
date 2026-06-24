@@ -42,6 +42,9 @@
 
     In my senior year of being an undergrad, I decided that it was time for a purely for-fun project. I present the demo fusor! <br/><br/>
 
+    <img src="Images/Demo Fusor/dark_plasma.JPG" class="img" loading="lazy" alt="" />
+    </br></br>
+
     <h2>Background</h2>
 
     The purpose of a demo fusor is in the name: to demonstrate nuclear fusion. Nuclear fusion occurs when the nuclei of two atoms fuse to form a heavier atom while simultaneously releasing a huge amount of energy through radiation, mostly through neutrons . In the equation below, two deuterium fuse to form helium, a neutron, and energy. <br/><br/>
@@ -141,7 +144,7 @@
         </video>
     </div> <br/><br/>
 
-    I take out the flange and bit off the vice and clean them off with acetone. The flange actually came out very nice! Clean edges, exact depth, no kinks. The bit, though. It's chipped. The shop supervisor tells me "you know, it's actually ok since I wanted to test this bit too, so this works out for the both of us". I 100% do not believe him. It wasn't just $800, but it was a gift. There has been sacrifice made to build this fusor, and I will never be able to fix the damages done. Anyway here is the bottom flange... <br/><br/>
+    I take out the flange and bit off the vice and clean them off with acetone. The flange actually came out very nice! Clean edges, exact depth, no kinks. The bit, though. It's chipped. The shop supervisor tells me "you know, it's actually ok since I wanted to test this bit too, so this works out for the both of us". I 100% do not believe him. There has been sacrifice made to build this fusor, and I will never be able to fix the damages done. Anyway here is the bottom flange... <br/><br/>
 
     <div class="row">
         <img src="Images/Demo Fusor/sparkplug_bottom.JPG" loading="lazy" alt="">
@@ -154,9 +157,12 @@
       style="color: #ff6600"
     >
     cheap, silicone epoxy
-    </a> from Amazon that semed like it would do the job. It didn't have any ratings, and I was assuming it would just work. Here is the disaster of a setup for potting each. Notice the vacuum chamber - it is vital that the epoxy gets degassed  in the chamberso no air bubbles will be trapped after mixing both parts. This is to prevent potential arcing. <br/><br/>
+    </a> from Amazon that semed like it would do the job. It didn't have any ratings, and I was assuming it would just work. Here is the disaster of a setup for potting each. Notice the vacuum chamber - it is vital that the epoxy gets degassed  in the chamberso no air bubbles will be trapped after mixing both parts. This is to prevent potential arcing. Although this part shouldn't have been hard, there were some unnecessary difficulties with the diode enclosure not being sealed fully before potting... note to self, seal enclosures with superglue before attempting more potting. <br/><br/>
 
-    <img src="Images/Demo Fusor/potting setup.jpg" class="img" loading="lazy" alt="" />
+    <div class="row">
+        <img src="Images/Demo Fusor/potting setup.jpg" class="img" loading="lazy" alt="" />
+        <img src="Images/Demo Fusor/potting_issues.JPG" class="img" loading="lazy" alt="" />
+    </div>
     </br></br>
 
     And here are the before and afters of both the sheath and diodes: <br/><br/>
@@ -171,7 +177,7 @@
         <img src="Images/Demo Fusor/potted diodes.JPG" loading="lazy" alt="">
     </div> <br/><br/>
 
-    For the center grid electrode, a material had to be chosen that would be able to withstand the thermal energy (some electrodes can glow red hot and oxidize after a while) whilst not being impossible to work with. This decision ended up being stainless steel wire. However, stainless steel wire is not the easiest to work with - normal soldering won't work since the stainless steel won't alloy to it, and welding will just melt the wire completely. The solution was brazing, which involves using high heat to wet silver solder onto the wire. 
+    For the center grid electrode, a material had to be chosen that would be able to withstand the thermal energy (some electrodes can glow red hot and oxidize after a while) whilst not being impossible to work with. This decision ended up being stainless steel wire. However, stainless steel wire is not the easiest to work with - normal soldering won't work since the stainless steel won't alloy to it, and welding will just melt the wire completely. The solution was brazing, which involves using high heat to wet silver solder onto the wire. <br/><br/>
 
     <div class="video-container">
         <video controls loading="lazy" poster="Images/Demo Fusor/brazing_thumbnail.jpg">
@@ -185,9 +191,79 @@
     <img src="Images/Demo Fusor/vinegar.JPG" class="img" loading="lazy" alt="" />
     </br></br>
 
+    I thought about possible ways to make the demo fusor modular (able to swap between electrodes, shapes, etc) without having issues with creepage. Unfortunately, there ended up significant issues with creepage as shown later, but I'm very happy with how modular and easy it is to swap out electrodes! I brazed on an M5 screw directly to the tip of the spark plug, then poured in epoxy between the spark plug, lid, and screw to keep arcing to a "minimum". Then, I could screw in a potted sheath, which includes a stainless steel wire with M5 heatsinks brazed on each side, placed in a 3D printed and potting-filled sheath. This would allow the center electrode to be screwed onto the sheath. </br></br>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/modular_attachment.JPG" loading="lazy" alt="">
+        <img src="Images/Demo Fusor/modular_grid.JPG" loading="lazy" alt="">
+    </div> <br/><br/>
+
+    Here is the completed, fully assembled bottom portion of the fusor. </br></br>
+
+    <img src="Images/Demo Fusor/full_bottom.JPG" class="img" loading="lazy" alt="" />
+    </br></br>
+
+    With all of the hard manufacturing done, all that was left was assembly! In the picture below, all the parts needed to make the chamber itself are shown. This includes the tri clamp which secures the flanges to the chamber, coupled with a silicone o-ring with a very thing layer of vacuum grease. Pictured on the left is the top flange, fitted with the pressure gauge, 1/4" NPT extensions, breather vent, and barbed hose nipple for the vacuum hose. Each NPT thread was secured with a single layer of teflon tape. <br /><br />
+
+    <img src="Images/Demo Fusor/individual_components.JPG" class="img" loading="lazy" alt="" />
+    </br></br>
+
+    Connecting neon sign transformer to the variac, the negative voltage to the center electrode, the positive voltage to the outside of the chamber, and placing each onto the wood panel and stilts I prepared, here is the assembled fusor! </br></br>
+
+    <img src="Images/Demo Fusor/completed.JPG" class="img" loading="lazy" alt="" />
+    </br></br>
+
     <h2>Testing the Fusor</h2>
 
+    I was pretty concerned about arcing in the chamber, so I wrapped up both the bottom and top of the sheath with some kapton tape. Turns out, we still had some arcing action... </br></br>
 
+    <div class="video-container">
+        <video controls loading="lazy" poster="Images/Demo Fusor/arcing_thumbnail.jpg">
+          <source src="Images/Demo Fusor/arcing.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <br /><br />
+
+    After adding additional layers of kapton and ensuring the adhesive was clinging more tightly, the plasma started to form. However, there were issues with grid size, how uncentered the grid was, and the vacuum pressure. The most concerning was the vacuum pressure. In a demo fusor, we expect to see a sudden turning-on behavior, almost like a light bulb, which only happens when the electric field is high enough to ignite a sizable plasma. However, our plasma was not only weak, but had a gradual turn on, indicating that there were some significant leaks within our chamber. This first video is after inserting the large grid into the fusor. </br></br>
+
+    <div class="video-container">
+        <video controls loading="lazy" poster="Images/Demo Fusor/large_grid_thumbnail.jpg">
+          <source src="Images/Demo Fusor/large_grid.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <br /><br />
+
+    And here is the plasma using the small grid. </br></br>
+
+    <div class="video-container">
+        <video controls loading="lazy" poster="Images/Demo Fusor/small_grid_thumbnail.jpg">
+          <source src="Images/Demo Fusor/small_grid.mp4" type="video/mp4" />
+        </video>
+    </div>
+    <br /><br />
+
+    Here are some more closeup images of how the poor vacuum allowed the plasma to arc only from a small portion of the grid. You can clearly see the path the electrons take that generate the plasma. </br></br>
+
+    <div class="row">
+        <img src="Images/Demo Fusor/poor_plasma_1.jpg" loading="lazy" alt="">
+        <img src="Images/Demo Fusor/poor_plasma_2.jpg" loading="lazy" alt="">
+    </div> </br>
+
+
+    <img src="Images/Demo Fusor/poor_plasma_3.PNG" class="img" loading="lazy" alt="" />
+    </br></br>
+
+    In order to chase down these vacuum leaks, I ended up practically reassembling the entire chamber. I reapplied a single layer of teflon, this time against the thread so screwing in the NPT parts would push in the teflon. I also torqued each NPT part as tight as possible, possibly destructively. In addition, I bought more silicone o-rings since clamping down the old o-rings stretched them out slightly, causing them to sit proud against the o-ring divot, which I thought was a potential vacuum leak too. I also applied a thinner layer of vacuum grease to prevent outgassing - a phenomenon where air particles travel through a certain material. Porous materials are very susceptible to outgassing, which is why JBWeld and other non-vacuum rated epoxies are difficult for keeping a vacuum. Although vacuum grease can handle better than other sealants around the o-rings, an excessive amount of vacuum grease can cause significant outgassing. Lastly, I applied some thin vacuum grease around the welding and potting, mostly for my own sanity just in case there were some air gaps. </br></br>
+
+    And here is the final result, after these modifications: </br></br>
+    
+    <img src="Images/Demo Fusor/final_plasma.jpg" class="img" loading="lazy" alt="" />
+    </br></br>
+
+    <img src="Images/Demo Fusor/closeup_plasma.jpg" class="img" loading="lazy" alt="" />
+    </br></br>
+
+    There are still significant improvements needed with vacuum leaks (you can see the plasma cloud above the electrode, rather than focused at the electrode). The highest voltage pushed was just up to 10kV. The plasma clearly doesn't have enough energy to create nuclear fusion, otherwise we would see a significantly brighter and concentrated glow at the center of the electrode. However, the fusor did have enough energy to cause small amounts of wire to heat up and spark off from the plasma! </br></br>
 
     </div>
   </body>
