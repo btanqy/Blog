@@ -36,6 +36,8 @@
       </script>
     </div>
 
+    <script src="../../script.js"></script>
+
     <!-- START TYPING HERE -->
     <div class="center">
       <h1></h1>
@@ -43,16 +45,16 @@
         <h1>Itinerary</h1>
         <ul class="center">
             <h3>
-            <li><a href="#Points of Interest" style="color: #ff6600;">Points of Interest</a></li>
-            <li><a href="#Food" style="color: #ff6600;">Food</a></li>
-            <li><a href="#Transportation" style="color: #ff6600;">Transportation</a></li>
-            <li><a href="#En Route" style="color: #ff6600;">En Route</a></li>
-            <li><a href="#Random Stuff" style="color: #ff6600;">Random Stuff</a></li>
+            <li><a href="#Points-of-Interest" onclick="event.preventDefault(); scrollUntilVisible('#Points-of-Interest');" style="color: #ff6600;">Points of Interest</a></li>
+            <li><a href="#Food" onclick="event.preventDefault(); scrollUntilVisible('#Food');" style="color: #ff6600;">Food</a></li>
+            <li><a href="#Transportation" onclick="event.preventDefault(); scrollUntilVisible('#Transportation');" style="color: #ff6600;">Transportation</a></li>
+            <li><a href="#En-Route" onclick="event.preventDefault(); scrollUntilVisible('#En-Route');" style="color: #ff6600;">En Route</a></li>
+            <li><a href="#Random-Stuff" onclick="event.preventDefault(); scrollUntilVisible('#Random-Stuff');" style="color: #ff6600;">Random Stuff</a></li>
             </h3>
         </ul>
 
 
-        <h1 id="Points of Interest">Points of Interest</h1>
+        <h1 id="Points-of-Interest">Points of Interest</h1>
         <p>
 
         <h2 id="Maokong">Maokong</h2>
@@ -91,7 +93,7 @@
         </p>
         
 
-        <h1 id="Food">Food</h2>
+        <h1 id="Food">Food</h1>
         <p>
 
         <h2>Yaoyue Teahouse</h2>
@@ -124,7 +126,7 @@
         <img src="Images/Travel in Taiwan/pepper_bun_uneaten.JPG" class="img" loading="lazy" alt="" />
         <img src="Images/Travel in Taiwan/pepper_bun.JPG" class="img" loading="lazy" alt="" /> </br></div>
         <strong> Rating: 9/10 | Price: $2.10 | Location: <a href="https://maps.app.goo.gl/YtnoWDJJkea7noMF7" style="color: #ff6600;">Fuzhou Pepper Buns</a> @ <a href="#Raohe Night Market" style="color: #ff6600;">Raohe Night Market</a>, Taipei </strong> </br>
-        This place is very busy, and really is the only stall in all of Raohe that has a line. We got lucky and got our food in about 5 minutes, but a 30 minute wait has also not been unheard of. This place does indeed live up to the hype. It is crispy, fresh, hot, steamy, and peppery with a hint of sweetness from the onions. This is absolutely a must in Raohe Night Market.
+        This place is very busy, and really is the only stall in all of Raohe that has a line. We got lucky and got our food in about 5 minutes. This place does indeed live up to the hype. It is crispy, fresh, hot, steamy, and peppery with a hint of sweetness from the onions. This is absolutely a must in Raohe Night Market.
 
         <h2>Guabao</h2>
         <img src="Images/Travel in Taiwan/guabao.JPG" class="img" loading="lazy" alt="" />  </br>
@@ -136,7 +138,7 @@
         <div class="row">
         <img src="Images/Travel in Taiwan/peanut_icecream_roll_uneaten.JPG" class="img" loading="lazy" alt="" />
         <img src="Images/Travel in Taiwan/peanut_icecream_roll.JPG" class="img" loading="lazy" alt="" /> </div></br>
-        <strong> Rating: 9/10 | Price: $2.20 | Location: <a href="#Raohe Night Market" style="color: #ff6600;">Raohe Night Market</a>, Taipei </strong> </br>
+        <strong> Rating: 10/10 | Price: $2.20 | Location: <a href="#Raohe Night Market" style="color: #ff6600;">Raohe Night Market</a>, Taipei </strong> </br>
         The roll has the consistencey and taste like a thin crepe, which is then filled with lots of peanut bits, cilantro, and two scoops of ice cream. None of this should work together but it actually tastes incredible - it is sweet, salty, and super fresh. This is also a must try in Raohe Night Market.
 
         <h2>Street Corn</h2>
@@ -155,10 +157,13 @@
         <a href="" style="color: #ff6600;">鄉淳布丁豆花</a> @ <a href="#Raohe Night Market" style="color: #ff6600;">Raohe Night Market</a>, Taipei </strong> </br>
         Nothing special. The ice above the tofu pudding was very coarse.
 
-        <h2>Thick Shaobing with Egg, Thin Shaobing with Youtiao, Soy Drink, Peanut Rice Drink</h2>
+        <h2>Thick Shaobing with Egg, Thin Shaobing with Youtiao, Soy Drink, Peanut Rice Drink, Turnip Pastry</h2>
+        <div class="row">
         <img src="Images/Travel in Taiwan/fuhang_breakfast.JPG" class="img" loading="lazy" alt="" /> </br>
+        <img src="Images/Travel in Taiwan/fuhang_turnip_pastry.JPG" class="img" loading="lazy" alt="" /> </br>
+        </div>
         <strong> Rating: 9/10 | Price: $3-5 | Location: <a href="https://maps.app.goo.gl/ixuRdZnyCnARCdCx6" style="color: #ff6600;">Fuhang Soy Milk</a> @ Zhongzheng, Taipei </strong> </br>
-        The shaobings are both phenomenal, but I prefer the thin one so it tastes less bready. Shaobing is pretty common in Taipei, so these items are slightly higher quality than a lot of already available competition, but people love to line up for it. I was in line for an hour. I also got the soy milk (pretty standard) and peanut rice drink, which is sweet and decently starchy due to the rice. It's kind of like drinking peanut butter, in a good way. I didn't get to try it this time, but Fuhang is also famous for their salty soy milk which contains shrimp. 
+        The shaobings are both phenomenal, but I prefer the thin one so it tastes less bready. Shaobing is pretty common in Taipei, so these items are slightly higher quality than a lot of already available competition, but people love to line up for it. I was in line for an hour. I also got the soy milk (pretty standard) and peanut rice drink, which is sweet and decently starchy due to the rice. It's kind of like drinking peanut butter, in a good way. I've never had it before trying it at Fuhang, but their turnip pastry is amazing. Savory, shredded bits of turnip paired perfectly with the flaky package. I didn't get to try it this time, but Fuhang is also famous for their salty soy milk which contains shrimp. 
 
         <h2>Pork Sandwich and Black Tea</h2>
         <img src="Images/Travel in Taiwan/mosburger_sandwich.JPG" class="img" loading="lazy" alt="" /> </br>
@@ -179,15 +184,15 @@
         <img src="Images/Travel in Taiwan/sushiro_tofu_fish.JPG" class="img" loading="lazy" alt="" /> </br>
         <img src="Images/Travel in Taiwan/sushiro_mango_shave_ice.JPG" class="img" loading="lazy" alt="" /> </br>
         </div>
-        <strong> Rating: 7/10 | Price: $40 | Location: Sushiro <a href="https://maps.app.goo.gl/mP6cKPqDsdQeCfr5A" style="color: #ff6600;">Sushiro</a> @ Zhongshan, Taipei </strong> </br>
-        Very solid, fresh sushi. However, they don't have an english menu available. 
+        <strong> Rating: 7/10 | Price: $40 | Location: <a href="https://maps.app.goo.gl/mP6cKPqDsdQeCfr5A" style="color: #ff6600;">Sushiro</a> @ Zhongshan, Taipei </strong> </br>
+        Very solid, fresh sushi. However, they don't have an english menu available. The price doesn't reflect the images above - we ordered much more than this.
 
         <h2>Beef Bourginoun, French Tea, Chocolate Latte, and Fruit Layer Cake UPDATE LOCATION</h2>
         <div class="row">
         <img src="Images/Travel in Taiwan/mrchu_beef_bourginoun.JPG" class="img" loading="lazy" alt="" /> </br>
         <img src="Images/Travel in Taiwan/mrchu_fruit_cake.JPG" class="img" loading="lazy" alt="" /> </br>
         </div> 
-        <strong> Rating: 5/10 | Price: $23 | Location: Mr. Chu <a href="https://maps.app.goo.gl/oVQ9PYTPQF8u82tf7" style="color: #ff6600;"></a> @ Yonghe, New Taipei City </strong> </br>
+        <strong> Rating: 5/10 | Price: $23 | Location: <a href="https://maps.app.goo.gl/oVQ9PYTPQF8u82tf7" style="color: #ff6600;">Mr. Chu</a> @ Yonghe, New Taipei City </strong> </br>
         This is a cat cafe, so the higher prices are to be expected. The drinks and food didn't feel particularly special, but were still delicious. The cake had crepe-like layers, with kiwi, dragonfruit, orange, and banana. I would recommend trying somewhere else. 
 
         <h2>Taro, Sweet Potato, and Mung Bean Balls</h2>
@@ -210,7 +215,7 @@
 
         <h2>Steamed Meat Bun</h2>
         <img src="Images/Travel in Taiwan/steamed_bun.JPG" class="img" loading="lazy" alt="" /> </br>
-        <strong> Rating: 8/10 | Price: $0.50 | Location: <a href="https://maps.app.goo.gl/BuWoLBihGttTA89z5" style="color: #ff6600;">Yilan Gold Medal Buns</a> @ <a href="#Yingge" style="color: #ff6600;">Yingge Old Street</a>, New Taipei City </strong> </br>
+        <strong> Rating: 9/10 | Price: $0.50 | Location: <a href="https://maps.app.goo.gl/BuWoLBihGttTA89z5" style="color: #ff6600;">Yilan Gold Medal Buns</a> @ <a href="#Yingge" style="color: #ff6600;">Yingge Old Street</a>, New Taipei City </strong> </br>
         The most freshly steamed meat buns served ever. I had to wait 20 minutes before attempting to eat it. The buns are perfectly pillowly, lightly sweet, and has a peppery filling. The inside also holds a lot of soup/meat juice.
 
         <h2>Lemon Ai-yu Drink</h2>
@@ -220,7 +225,7 @@
 
         <h2>"Sushi" and Garlic Noodles</h2>
         <img src="Images/Travel in Taiwan/apwo_sushi.JPG" class="img" loading="lazy" alt="" /> </br>
-        <strong> Rating: 3/10 | Price: $10 | Location: 阿婆壽司 <a href="https://maps.app.goo.gl/Gj5GinppkyBMtZQ4A" style="color: #ff6600;"></a> @ <a href="#Yingge" style="color: #ff6600;">Yingge Old Street</a>, New Taipei City </strong> </br>
+        <strong> Rating: 3/10 | Price: $10 | Location: <a href="https://maps.app.goo.gl/Gj5GinppkyBMtZQ4A" style="color: #ff6600;">阿婆壽司</a> @ <a href="#Yingge" style="color: #ff6600;">Yingge Old Street</a>, New Taipei City </strong> </br>
         This isn't poorly rated because the food tasted bad, but rather, it was an odd combination and confusing eating experience. First off, the tofu bags are surprisingly sweet. I usually love eating tofu bags but these are insanely sweet. The roll wrapped in egg contains rice, cucumber, mayo, pork floss, and ham. This seriously shouldn't work, and it almost does. The mayo is just way too sweet. The seaweed roll contains rice, pork floss, and some kind of crunchy melon. This was my favorite here. The garlic noodles were insanely garlicky - I thought it was super spicy when I first tasted it, only to find out it was just pure garlic flavor. Apparently, it's made with red garlic which gives it its unique kick. Alongside the noodles came some mushroom and a century egg, both had no flavor.
 
         <h2>Taro Duck</h2>
@@ -230,20 +235,17 @@
 
         <h2>Grilled Fried Chicken</h2>
         <img src="Images/Travel in Taiwan/grilled_friend_chicken.JPG" class="img" loading="lazy" alt="" /> </br>
-        <strong> Rating: 4/10 | Price: $3 | Location: 維縈家鄉碳烤雞排 <a href="https://maps.app.goo.gl/9SFoUM1KSpy2tJiH9" style="color: #ff6600;"></a> @ Zhongshan, Taipei </strong> </br>
-        Taiwan is also famous for frying a chicken cutlet, smothering it in sauce, then grilling the whole thing for some char. I originally tried one in the states to find out that the quality wasn't great. Here, the quality is amazing, just the sauce is way too sweet to be enjoyable.
+        <strong> Rating: 4-9/10| Price: $3 | Location: 維縈家鄉碳烤雞排 @ Various Locations </strong> </br>
+        Taiwan is also famous for frying a chicken cutlet, smothering it in a sweet sauce, then grilling the whole thing for some char. There are quite a few stores, but I think the best one is the stand outside of Shilin Night Market, where there's always a line and the chicken is both fresh and crispy. The chicken does have cartilage and bones when it was fried, so there is some expertise needed eating around them. Also, the amount of chicken they give is pretty insane. I also did try another location, and is excessively sweet and slightly bland.
 
         <h2>Breakfast Sandwiches</h2>
         <img src="Images/Travel in Taiwan/breakfast_sandwich.JPG" class="img" loading="lazy" alt="" /> </br>
-        <strong> Rating: 4/10 | Price: $4.70 | Location: My Warm Day <a href="https://maps.app.goo.gl/U9CGnncMNREzmopUA" style="color: #ff6600;"></a> @ Zhongzheng, Taipei </strong> </br>
+        <strong> Rating: 4/10 | Price: $4.70 | Location: <a href="https://maps.app.goo.gl/U9CGnncMNREzmopUA" style="color: #ff6600;">My Warm Day</a> @ Zhongzheng, Taipei </strong> </br>
         I was craving some american food and was dissapointed to find out these sandwiches were sweet. The pancake sandwich (egg, hashbrown) tasted like pound cake, and the danish sandwich (tomato, egg, mayo, bacon) was at least better but still surprisingly sweet. 
 
         <h2>Smoked Chicken Bread and Garlic Danish</h2>
-        <div class="row">
-        <img src="Images/Travel in Taiwan/sunmerry_bakery.JPG" class="img" loading="lazy" alt="" /> </br>
         <img src="Images/Travel in Taiwan/garlic_danish_chicken_bread.JPG" class="img" loading="lazy" alt="" /> </br>
-        </div>
-        <strong> Rating: 4/10 | Price: $2.80 | Location: Sunmerry <a href="https://maps.app.goo.gl/fwWbyt56PWa8ne4r9" style="color: #ff6600;"></a> @ Da'an, Taipei </strong> </br>
+        <strong> Rating: 4/10 | Price: $2.80 | Location: <a href="https://maps.app.goo.gl/fwWbyt56PWa8ne4r9" style="color: #ff6600;">Sunmerry</a> @ Da'an, Taipei </strong> </br>
         Solid, but still too sweet. Garlic bread was very garlicky and had good texture though!
 
         <h2>Almond Berry Croissant</h2>
@@ -251,7 +253,7 @@
         <img src="Images/Travel in Taiwan/muhen_bakery.JPG" class="img" loading="lazy" alt="" /> </br>
         <img src="Images/Travel in Taiwan/muhen_bakery_almond_croissant.JPG" class="img" loading="lazy" alt="" /> </br>
         </div>
-        <strong> Rating: 9/10 | Price: $4.80 | Location: Muhei Bakery <a href="https://maps.app.goo.gl/QUmqc29rARzaQMDn8" style="color: #ff6600;"></a> @ Da'an, Taipei </strong> </br>
+        <strong> Rating: 9/10 | Price: $4.80 | Location: <a href="https://maps.app.goo.gl/QUmqc29rARzaQMDn8" style="color: #ff6600;">Muhei Bakery</a> @ Da'an, Taipei </strong> </br>
         This bakery has both regular (butter, chocolate, etc) croissants and very odd (matcha, peanut, crab) croissants. The almond berry croissant had the perfect bready-flaky consistency, and was filled with chocolate and jam inside, but somehow wasn't overly sweet. I loved every bite of it! There was also a nice seating area inside, but I didn't stick around.
 
         <h2>Cafeteria Food</h2>
@@ -261,18 +263,18 @@
 
         <h2>Lemon Cake</h2>
         <img src="Images/Travel in Taiwan/lemon_cake.JPG" class="img" loading="lazy" alt="" /> </br>
-        <strong> Rating: 7/10 | Price: $4.20 | Location: SheMe Teahouse <a href="https://maps.app.goo.gl/Ccu7ejKGp4ksnrrV6" style="color: #ff6600;"></a> @ Beitou, Taipei </strong> </br>
+        <strong> Rating: 7/10 | Price: $4.20 | Location: <a href="https://maps.app.goo.gl/Ccu7ejKGp4ksnrrV6" style="color: #ff6600;">SheMe Teahouse</a> @ Beitou, Taipei </strong> </br>
         Great cake! It's a lemony pound cake with crunchy icing on top. They only allow 90 minutes to sit down though.
 
         <h2>Sugar Cane Juice</h2>
         <img src="Images/Travel in Taiwan/sugar_cane_juice.JPG" class="img" loading="lazy" alt="" /> </br>
-        <strong> Rating: 7/10 | Price: ?? | Location: Shilin Night Market<a href="https://maps.app.goo.gl/YLe3mPRtY58MoaJ59" style="color: #ff6600;"></a> @ <a href="#Shilin" style="color: #ff6600;">Shilin</a>, Taipei </strong> </br>
+        <strong> Rating: 7/10 | Price: ?? | Location: <a href="https://maps.app.goo.gl/YLe3mPRtY58MoaJ59" style="color: #ff6600;">Shilin Night Market</a> @ <a href="#Shilin" style="color: #ff6600;">Shilin</a>, Taipei </strong> </br>
         Sorry, don't remember the price. Sugar cane juice is always good! It is fragrant, and very natural tasting.
 
         <h2>Danbing, Youtiao, Pork Roll, Soy Milk</h2>
         <img src="Images/Travel in Taiwan/danbing.JPG" class="img" loading="lazy" alt="" /> </br>
-        <strong> Rating: 8/10 | Price: $7 | Location: 永和豆漿大王<a href="https://maps.app.goo.gl/KFUAeF2y6exGohxU7" style="color: #ff6600;"></a> @ Da'an Taipei </strong> </br>
-        This rating is based off of everything here except the pork roll. It is supposed to be flaky and salty with the pork floss wrapped in pastry, but it was dryer than eating straight up flavor and had less flavor than flour. However, the youtiao was freshly fried, fragrant, and juicy (because of the oil - very bad for health, but delicious). The soy milk was also fresh. However, the star was the danbing, an egg rolled into a wrapper. I can't tell if it's been pan fried or steamed, but the wrapper maintains a super bouncy texture despite being fairly thick. Paired with soy sauce and vinegar, this is a fantastic dish. 
+        <strong> Rating: 8/10 | Price: $7 | Location: <a href="https://maps.app.goo.gl/KFUAeF2y6exGohxU7" style="color: #ff6600;">永和豆漿大王</a> @ Da'an Taipei </strong> </br>
+        This rating is based off of everything here except the pork roll. It is supposed to be flaky and salty with the pork floss wrapped in pastry, but this was perhaps the dryest, densest, and flavorless thing I've ever eaten. However, the youtiao was freshly fried, fragrant, and juicy (because of the oil - very bad for health, but delicious). The soy milk was also fresh. However, the star was the danbing, an egg rolled into a wrapper. I can't tell if it's been pan fried or steamed, but the wrapper maintains a super bouncy texture despite being fairly thick. Paired with soy sauce and vinegar, this is a fantastic dish. 
 
         <h2>Chien-Yen</h2>
         <img src="Images/Travel in Taiwan/chien-yen.JPG" class="img" loading="lazy" alt="" /> </br>
@@ -287,7 +289,7 @@
         <h2>Honey Waffle and Elderflower Smoothie</h2>
         <img src="Images/Travel in Taiwan/oromo_cafe.JPG" class="img" loading="lazy" alt="" /> </br>
         <strong> Rating: 8/10 | Price: $13 | Location: Oromo Cafe<a href="https://maps.app.goo.gl/KZY4jJN5FbzovDdk9" style="color: #ff6600;"></a> @ Zhongzheng, Taipei </strong> </br>
-        I kind of just wanted a place to sit down and do work, and had to order minimum a drink. I chose what seemed like two very normal dishes that should have come in a small plate and glass, and when I went down to pick up my food I couldn't believe what I just ordered. To be perfectly fair, both the drink and waffles aren't overly sweet, and they do have a lot of fun snacks to pick up on the side. However, this is not a light snack. Although delicious, do come here only when very hungry, and perhaps order some savory dishes - most people were ordering food and not sweets. 
+        I kind of just wanted a place to sit down and do work, and had to order minimum a drink. I chose what seemed like two very normal dishes that should have come in a small plate and glass, and when I went down to pick up my food I couldn't believe what I just ordered. To be perfectly fair, both the drink and waffles aren't overly sweet, and they do have a lot of fun snacks to pick up on the side. However, this is not a light snack. Although delicious, do come here only when very hungry, and perhaps order some savory dishes - most people were ordering food and not sweets. This was the only place in Taiwan I came back twice for.
         
 
 
@@ -297,13 +299,13 @@
 
         </p>
 
-        <h1 id="En Route">En Route</h2>
+        <h1 id="En-Route">En Route</h2>
         <p>
 
 
         </p>
 
-        <h1 id="Random Stuff">Random Stuff</h2>
+        <h1 id="Random-Stuff">Random Stuff</h2>
         <p>
 
 

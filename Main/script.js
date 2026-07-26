@@ -80,3 +80,33 @@ function toggleSubcategories(element) {
     filterByCategory('all');
   }
 }
+
+function scrollUntilVisible(selector) {
+    const target = document.querySelector(selector);
+    if (!target) return;
+
+    const check = setInterval(() => {
+        // Stop if already at bottom
+        if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2) {
+            clearInterval(check);
+            console.log("Reached bottom of page");
+            return;
+        }
+
+        target.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        const rect = target.getBoundingClientRect();
+
+        // Section reached top
+        if (Math.abs(rect.top) < 2) {
+            clearInterval(check);
+            console.log("Section reached");
+        }
+
+    }, 100);
+}
+
+window.scrollUntilVisible = scrollUntilVisible;
