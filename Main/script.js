@@ -106,7 +106,15 @@ function scrollUntilVisible(selector) {
             console.log("Section reached");
         }
 
-    }, 100);
+    }, 300);
 }
 
-window.scrollUntilVisible = scrollUntilVisible;
+function scrollUntilVisibleReverse(selector) {
+    const target = document.querySelector(selector);
+    if (!target) return;
+
+    target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
