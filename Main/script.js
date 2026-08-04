@@ -106,7 +106,7 @@ function scrollUntilVisible(selector) {
             console.log("Section reached");
         }
 
-    }, 300);
+    }, 150);
 }
 
 function scrollUntilVisibleReverse(selector) {
