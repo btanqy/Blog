@@ -121,16 +121,28 @@ function scrollUntilVisibleReverse(selector) {
 
 const imageObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-
         const img = entry.target;
-        img.src = img.dataset.src;
 
-        imageObserver.unobserve(img);
+        if (entry.isIntersecting) {
+            clearTimeout(img._loadTimer);
+
+            img._loadTimer = setTimeout(() => {
+                // Check that it's still in range
+                if (entry.target.isConnected) {
+                    img.src = img.dataset.src;
+                    imageObserver.unobserve(img);
+                }
+            }, 1000);
+
+        } else {
+            clearTimeout(img._loadTimer);
+            img._loadTimer = null;
+        }
     });
 }, {
     rootMargin: "500px 0px"
 });
+
 
 const domObserver = new MutationObserver((mutations) => {
     mutations.forEach(mutation => {
@@ -153,7 +165,8 @@ domObserver.observe(document.body, {
     subtree: true
 });
 
-// Also handle images that already exist
+
+// Images that already exist
 document.querySelectorAll("img[data-src]").forEach(img => {
     imageObserver.observe(img);
 });
