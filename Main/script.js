@@ -118,3 +118,42 @@ function scrollUntilVisibleReverse(selector) {
         block: "start"
     });
 }
+
+const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+
+        const img = entry.target;
+        img.src = img.dataset.src;
+
+        imageObserver.unobserve(img);
+    });
+}, {
+    rootMargin: "500px 0px"
+});
+
+const domObserver = new MutationObserver((mutations) => {
+    mutations.forEach(mutation => {
+        mutation.addedNodes.forEach(node => {
+            if (node.nodeType !== Node.ELEMENT_NODE) return;
+
+            if (node.matches?.("img[data-src]")) {
+                imageObserver.observe(node);
+            }
+
+            node.querySelectorAll?.("img[data-src]").forEach(img => {
+                imageObserver.observe(img);
+            });
+        });
+    });
+});
+
+domObserver.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+
+// Also handle images that already exist
+document.querySelectorAll("img[data-src]").forEach(img => {
+    imageObserver.observe(img);
+});
