@@ -132,7 +132,7 @@ const imageObserver = new IntersectionObserver((entries) => {
                     img.src = img.dataset.src;
                     imageObserver.unobserve(img);
                 }
-            }, 1000);
+            }, 800);
 
         } else {
             clearTimeout(img._loadTimer);
