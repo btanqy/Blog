@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chasing the Stars</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+    </div>
+
+    <script src="../../script.js"></script>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+        <h1>Chasing the Stars</h1>
+
+        <h2 id="Points-of-Interest">Points of Interest</h2>
+        <ul class="center">
+            <h3>
+            <li><a href="#Lake-Manzanita" onclick="event.preventDefault(); scrollUntilVisible('#Lake-Manzanita');" style="color: #ff6600;">Lake Manzanita</a></li>
+            <li><a href="#Lake-Siskiyou" onclick="event.preventDefault(); scrollUntilVisible('#Lake-Siskiyou');" style="color: #ff6600;">Lake Siskiyou</a></li>
+            <li><a href="#Lava-Beds" onclick="event.preventDefault(); scrollUntilVisible('#Lava-Beds');" style="color: #ff6600;">Lava Beds National Monument</a></li>
+            <li><a href="#Jedidiah-Smith" onclick="event.preventDefault(); scrollUntilVisible('#Jedidiah-Smith');" style="color: #ff6600;">Jedidiah Smith, Redwoods National Park</a></li>
+            </h3>
+        </ul>
+
+        The best conditions to see the stars are when nights are relatively long, weather conditions are clear, and light pollution is low. That means travelling when it is winter or spring, going more inland, staying away from most cities and towns, and going only when there is a new moon. Although conditions weren't perfect, it was still an amazing opportunity to take pictures out at Lake Manzanita, Lake Siskiyou, Lava Beds National Monument, and Jedidiah Smith, all in northern California in September. Nevertheless, is is infinitely better than places that I've thought about trying such as Lick Observatory and Griffith Observatory. <br><br>
+        
+        I used my Nikon D3300 with myu lens mostly at 18mm, between 800-3200 iso (mostly 1600) with most exposures between 30 seconds and just over a minute. Some of these pictures came out more blurry than I would have liked because the autofocus couldn't adjust to the stars, meaning I had to manually adjust the focus. <br><br>
+
+        <h2 id="#Lake-Manzanita">Lake Manzanita</h2>
+        <h4>3 days before the new moon</h3>
+
+        This picture is from the small launching dock, overlooking the lake. This is perhaps my worst image, and I didn't take the time to seize the opportunity to try and adjust my focus and take more shots. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/lake_manzanita.JPG" class="img"/></br></br>
+
+        This was the view from our campsite. Though it was pretty dark already at the campgrounds, I did have to wait till close to 11pm in order to get this shot, since other peoples' lights and campfires lit up the trees around us. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/manzanita_campsite.JPG" class="img"/></br></br>
+
+        <h2 id="Lake-Siskiyou">Lake Siskiyou</h2>
+        <h4>2 and 1 day before the new moon</h3>
+
+        All of these shots from Lake Siskiyou are from the campsite I was at. I wanted to take some pictures at the lake but eventually didn't go for it, and I kind of regret it. Despite that, I got some amazing photos and some interesting effects. This picture in particular had an odd, blue hue that I didn't intentionally try to capture. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/lake_siskiyou.JPG" class="img"/></br></br>
+
+        Here's a more normal picture that didn't have the odd blue hue. This one was at high iso for a much longer shutter speed, so the stars do look quite blurry in comparison to the tree next to them. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/siskiyou_long_shutter.JPG" class="img"/></br></br>
+
+        I also wanted to try some photos of the stars streaking across the sky. This wasn't exactly what I expected, but a 20 minute exposure got me this: </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/siskiyou_blur.JPG" class="img"/></br></br>
+
+        <h2 id="Lava-Beds">Lava Beds National Monument</h2>
+        <h4>Night of the new moon</h3>
+
+        I honestly thought it would be darker here, but there was a small town that had quite a bit of light pollution spilling out over the plateau. I mainly took pictures looking away from the town. These are also from our campsite - I didn't go out of the way to get to someplace special since it was way too dark. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/lava_beds.JPG" class="img"/></br></br>
+
+        This is a photo facing the town I was referring to - notice how the stars are a lot less bright in this direction. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/lava_beds_light_pollution.JPG" class="img"/></br></br>
+
+        We also definitely saw a few shooting stars this night, but maybe 5 times more planes. In most of the photos with planes, you can clearly see a dotted pattern where the plane flashes their lights on and off, in addition to red and green hues. In this picture however, the streak across the sky is thin and narrow (roughly 4 times thinner than the plane streaks in other photos) and doesn't have any additional red/green color, which makes me think this could very likely be a shooting star. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/lava_beds_shooting_star.JPG" class="img"/></br></br>
+
+        <h2 id="#Jedidiah-Smith">Jeiddiah Smith, Redwoods National Park</h2>
+        <h4>1 day after the new moon</h3>
+
+        I was least excited for this location mainly because Jedidiah Smith is located in a dense, redwood forest next to the coastline. That means lots of obstruction, including leaves, fog, rain, clouds, etc. I was happy to get this shot but otherwise wasn't expecting much more than this, so I really only have one good picture to share. </br></br>
+
+        <img src="Images/Chasing the Stars/placeholder.JPG" data-src="Images/Chasing the Stars/jedidiah_smith.JPG" class="img"/></br></br>
+
+    </div>
+  </body>
+</html>
