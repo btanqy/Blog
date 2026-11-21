@@ -30,6 +30,12 @@
     text-align: center;
 }
 
+.centered-block {
+  max-width: 600px;
+  margin: 0 auto; /* Centers the box horizontally */
+  text-align: left; /* Keeps lines left-aligned inside the box */
+}
+
 .inline {
     display: flex;
     justify-content: space-between;

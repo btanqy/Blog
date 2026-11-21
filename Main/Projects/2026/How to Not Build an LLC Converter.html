@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How to Not Build an LLC Converter</title>
+
+    <!-- Link to fonts and icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;1,100&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../../../style.css" />
+  </head>
+
+  <body>
+    <div>
+      <!-- Add this placeholder somewhere in your <body>, probably near the top -->
+      <div id="banner-placeholder"></div>
+
+      <script>
+        fetch("../../banner.html")
+          .then((res) => res.text())
+          .then((data) => {
+            document.getElementById("banner-placeholder").innerHTML = data;
+          })
+          .catch((err) => console.error("Failed to load banner:", err));
+      </script>
+      <script>
+        MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        }
+        };
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </div>
+
+    <script src="../../script.js"></script>
+
+    <!-- START TYPING HERE -->
+    <div class="center">
+      <h1>How to Not Build an LLC Converter</h1>
+
+      <a
+            href="https://github.com/btanqy/LLC-GaN-Protoboard"
+            target="_blank"
+            style="color: #ff6600"
+          >
+            Project on Github
+          </a>
+
+      <h1 id="Chapters">Chapters</h1>
+      <ul class="center">
+          <h3>
+          <li><a href="#First-Design-and-Theory" onclick="event.preventDefault(); scrollUntilVisible('#First-Design-and-Theory');" style="color: #ff6600;">First Design and Theory</a></li>
+          <li><a href="#Controller-and-Code" onclick="event.preventDefault(); scrollUntilVisible('#Controller-and-Code');" style="color: #ff6600;">Controller and Code</a></li>
+          <li><a href="#First-Design-Results" onclick="event.preventDefault(); scrollUntilVisible('#First-Design-Results');" style="color: #ff6600;">First Design Results</a></li>
+          <li><a href="#Second-Design-Results" onclick="event.preventDefault(); scrollUntilVisible('#Second-Design-Results');" style="color: #ff6600;">Second Design Results</a></li>
+          </h3>
+      </ul>
+
+      <h1 id="First-Design-and-Theory">First Design and Theory</h1>
+
+      <h2>Basics</h2>
+      The LLC converter is a relatively straightforward design, but is quite nonlinear. I won't discuss any but will point out my workarounds due to nonlinearities. Here is a basic LLC converter using a half bridge and full bridge rectifier. <br><br>
+
+      <img src="Images/LLC Protoboard/llc.png" class="img" loading="lazy" alt="" /><br><br>
+
+      The half bridge provides a square wave of amplitude $V_{in}$, centered around $V_{in}/2$ (hence, half the voltage gain compared to a full bridge). This is fed into the resonant tank consisting of $L_r$, $L_m$, and $C_s$. In a ideal transformer, there is zero leakage inductance, but for the sake of simplification assume $L_r$ takes part of the leakage inductance from the transformer. There is a resonance between $L_r$ and $C_s$, which is always higher than the $L_r$ - $L_m$ - $C_s$ branch. This makes this converter multiresonant, where the band between both resonances dictates the inductive zone. This inductive zone provides lag to the switcing node, allowing the switches with some amount of drain to source capacitance to discharge, giving us a chance to reduce switching losses by acheiving ZVS. <br><br>
+
+      The output from the rectifier is simple - it takes the sine wave, filtered from the tank from the switching node to produce a DC voltage at the output, filtered again by $C_{out}$ for a stable output voltage. <br><br>
+
+      This graph below, stolen from MPS's website, shows the relative gain with respect to the quality factor Q, which is dependent on the resonant components (mostly $C_s$ after the transformer is made) and the load. <br><br>
+
+      <img src="Images/LLC Protoboard/Qgain.png" class="img" loading="lazy" alt="" /><br><br>
+
+      Not shown in the image above is another parameter, $m$, which is the ratio of the magnetizing inductance to series/leakage inductance. With lower values of $m$, the circulating current increases which helps with modulating the gain, somewhat similar to Q. However, these circulating currents cause $I^2 R$ losses, which means that a reasonable $m$ value is higher for converters seeking more efficiency, at the cost of needing to switch significantly faster or slower to get the same gain as a low $m$ converter. <br><br>
+
+      <h2>Making the Transformer</h2>
+
+      Without an LCR meter, measuring the inductance of the transformer becomes more difficult. However, by using this circuit, the resonance of the transformer can be measured and used to calculate the inductance. <br><br>
+      
+      <img src="Images/LLC Protoboard/resonance_measurement.png" class="img" loading="lazy" alt="" /><br><br>
+
+      The square wave from $V_{sq}$ is generated by the Pi Pico 2 PWM pin. $C_1$ passes a pulse to the tank between $C_2$ and $L_m + L_s$, causing them to resonate at a certain frequency. I found that using a $0.1 \mu F$ worked best with the Pico, which came out to be roughly a 2ns pulse. Keeping that in mind, I set $C_2$ to $0.3\mu F$ to keep the resonant frequency much lower than the pulse bandwidth. The initial measurement is done with the secondary open. The resulting magnetizing plus leakage inductance can then be calcualted as $\frac {1}{C_2(2 \pi f)^2}$. The same equation is used for measuring the leakage, just when the secondary is shorted. The magnetizing inductance can then be found by just subtracting the former from the leakage. <br><br>
+
+      Using the PC47HEER35-Z cores with 0.06mm of kapton gap, the calculated $L_m$ is $UPDATE VALUE\mu H$ and the $L_s$ is $UPDATE VALUE\mu H$. I'd liked to have more leakage, but I can't widen the gap more without increasing the frequency significantly. However, I found significant issues (to be discussed) with having a rather large gap. For some reasons unknown though, with using 0.04mm of gap instead the calculated $L_m$ is $UPDATE VALUE\mu H$ and $L_s$ is $UPDATE VALUE\mu H$, yet results improved significantly. <br><br>
+
+      I ended up doing a few different amounts of turns. The first transformer with the 0.06mm gap was about 2:85, whilst the other was 2:70. <br><br>
+
+      <h2>Tank Components</h2>
+
+      For a target of $m=4$ from ($\frac {L_s + L_r + L_m}{L_s + L_r}$), roughly $130kHz$ from ($\frac {1}{2\pi \sqrt{(L_s + L_r)L_m}}$) resonance, and $Q=0.2$ from $\frac{\sqrt{\frac{L_s + L_r}{C_r}}}{R_{ac}}$, the closest components I could get to that were for $C_r=0.5\mu F$ and $L_r=330nH$. <br><br>
+
+      Especially for a low m value, this meant that my range of gain over the switching frequency is quite high compared to most LLC converters, especially since most are designed to operate for a very specific load from a very specific input. The drawback is that my circulating current is quite large - approximately 5.5 times the current at the input at my set load of 20kohm.  <br><br>
+
+      My initial testing started with the IRF630... definitely not the right choice in terms of the on resistance, though had the best rise time for an off-the-shelf mosfet for me at the time.<br><br>
+
+      <img src="Images/LLC Protoboard/IRF630.png" class="img" loading="lazy" alt="" /><br><br>
+
+      Though the rise time is quite reasonable at 28ns, there's a bit more to be desired than having an $R_{dson}$ of $0.4\Omega$. To be quite honest I don't know why I went ahead and bought this despite knowing how high the on resistance was, but here we are... <br><br>
+
+      However, I did get some very nice diodes. These SI02C120SMA diodes are silicon carbide schottky diodes, which have virtually no reverse recovery time and have roughly 50pF of junction capacitance at my operating voltage. <br><br>
+      
+      <h1 id="Controller-and-Code">Controller and Code</h1>
+        
+      Looking at the gain curve per switching frequency of the converter, it is easy to see that it is not at all linear over any range of frequency. However, that's not going to stop me from using a linear PI controller from manning the converter. Due to complications discussed later about it, I've capped my controller frequency at 10kHz. Since I'm using a Pi Pico as my controller, I'm limited by the ADC sampling rate anyways, which is $500kS/s$ (plenty for 10kHz though). I've decided to directly convert and use output voltage per frequency as my controller gain, which turns out to be $2kHz/V$. This is the worst case scenario (steepest part of the gain) so that I still have the resolution I want near that area, though at the cost of stability when topping out to a very small slope. <br><br>
+
+      My digital controller is quite simple - on a high level it's just $f_{sw} = error * KP + integral * KI$ for a simple PI controller. I have no basis for selecting my KP and KI values other than fanagling with the KP first until I found an acceptable rise time and overshoot I liked, and then introduced KI to control the ripple. <br><br>
+
+      I'm not a great programmer, if at all. So I started to try and code a complementary PWM with deadtime in Python, which is difficult and largely unavailable in terms of libraries. Not only is this unavailable, but quite impractical too, since Python cannot keep up and gives inaccurate timings of when the siwtches need to turn on or off, due to how much overhead in computation is required. <br><br>
+
+      Next, I tried to make a PWM while still using Python by configuring the registers on the Pi Pico. I actually had a lot of success with this, and was able to generate somewhat accurate PWM by applying a slice (for pure complementary PWM) and two slices (for offset PWM) to generate a pretty decent signal. However, this also ended up being pretty lacking for two reasons - 1. any computation or control inserted into the control loop still bogged down the system enough for it to lose all timing accuracy for control, and 2. if I wanted to modulate the switching frequency, there was no clear way to do so without accidentally causing shoot through. <br><br>
+
+      Therefore, my third and final solution was to use C code, and I'm so glad it worked out because I actually despise coding after having done all of this. Not only was computation blazing fast, but I had access to modify the PIO (pin input output) state machines. By implementing my own assembly-like PIO, I was able to generate precise timings for a custom PWM down to the clock pulse.
+
+      <div class="centered-block"><pre><code>
+      .program PWM
+
+      .side_set 2 opt; max delay at 15 cycles, each cycle is 6ns at 200MHz bandwidth
+
+      ; pull - 1 cycle
+      ; mov - 1 cycle
+      ; out - 1 cycle
+      ; jmp - 2 cycles to repeat, 1 cycle to pass
+      ; nop - 1 cycle
+
+      ; the entire loop has at least 84ns of compute time at 6ns cycles
+
+      .define MINDEAD 3
+
+      .wrap_target
+
+      drivehi:
+          pull noblock
+          mov isr, osr ; copy bit temporarily
+          out x, 20 ; on time
+          out y, 12 ; deadtime
+
+      delayhi:
+          jmp x--     delayhi     side 0b10
+
+      deadtimehi:
+          jmp y--     deadtimehi  side 0b00
+
+      mov osr, isr
+      out x, 20
+      out y, 12 [MINDEAD]
+
+      delaylo:
+          jmp x--     delaylo     side 0b01   
+
+      deadtimelo:
+          jmp y--     deadtimelo  side 0b00   
+
+      mov x, isr
+
+      .wrap
+      </code>
+      </pre></div>
+
+      This is the PIO program, which is a lot simpler than it seems. The PIO program turns on two pins whose set high and low are masked by <code>side 0bxx</code>. In order to pull data from what frequency and duty time to set the PIO, I pull 20 bits to register X for on time and 12 bits into register Y for deadtime. The bit allocation is mostly arbitrary, though I do prefer to have more bits in on time since those tend to be much longer than deadtime. </br></br>
+
+      After getting the data, the I copy some data over to ISR, which I am not using, to keep the on time and deadtime data for the next half-cycle of PWM. On the first half-cycle, the on time register X decrements by 1 until it hits zero, when the low side pin transitions from on to off. Then, the deadtime register Y similarly decrements by 1 until it hits zero, at which it transitions from holding the low side off before the second half-cycle does the same exact process. </br></br>
+
+      The most difficult bit was just figuring out the timing. Since my microcontroller runs on a 200MHz clock, each command takes 1 cycle, or 6ns, to process, except for the decrements which take two cycles. In order to keep both the first and second half-cycle consistent, I had to insert some delay time (MINDEAD) to keep it even. I won't show it here, but the rest of setting up the PWM was just a function in the C code to do all the calculations for me for how much ontime and deadtime I want by just inputting in frequency and deadtime. </br></br>
+      
+
+      <h2 id="Output-Voltage-Regulation">Output Voltage Regulation</h2>
+
+      For the sake of not wanting to deal with it, I don't have any sense components for the input current, input voltage, or output current. However, the output voltage is sensed through a voltage divider scaled down to the hundreds of mV range, fed through a jumper wire, then into an isolated amplifier (TPA8000) with a set gain of 8, into the ADC of the pico. Very not ideal... because of many issues. At first, I thought all would be fine since the isolated amplifier has a bandwidth of about 100kHz, enough for my target switching frequency of roughly 200-400kHz (pretty much exactly meeting the Nyquist sampling condition, and saving my money heck yeah), but it was actually the high voltage step down that hurt the sampling itself. Turns out, the jumper wires I connected to from the isolated output back to the input are VERY prone to noise. And my transformer is making a lot of noise. So my feedback is actually picking up just about 0.5V of noise... where my signal is roughly centered at 1.2V... <br><br>
+
+      Regardless, my solution was to lower maximum control frequency to at least 5 times slower than the ADC sampling rate. That way, I could sample quite a few times and average/prune out outliers before feeding it into the control loop.<br><br>
+
+      <h1 id="First-Design-Results">First Design Results</h1>
+
+      It's not pretty, but here's the project. Again, I'm using the 2:85 turn transformer with IRF630 with a set load of 20kOhm. <br><br>
+
+      <img src="Images/LLC Protoboard/rev1.JPG" class="img" loading="lazy" alt="" /><br><br>
+
+      A couple jarring items to point out first include the giant piece of foil, lots of oddly-positioned through hole components, and the deceptively thin wire. First, the noise must be addressed. The big yellow foil is just a piece of aluminum foil wrapped in kapton, and connected to another jumper wire and grounded to the isolated side. I was hoping this would serve as a shield to counter the noise, which was this severe, and practically completely unreadable/useless from a digital standpoint. <br><br>
+
+      <img src="Images/LLC Protoboard/noise.JPG" class="img" loading="lazy" alt="" /><br><br>
+
+      After inserting the shield, the noise got worse! I think I ended up making an antenna instead, and the dimensions + wire contact resistance wasn't helping the situation either. <br><br>
+
+      I realized I bought the wrong gate driver (wrong pinout), and had to find another solution in store, which ended being the IR2110 driver, put on a breadboard, and wired to the gates through jumper wire and through hole gate resistor. To the through hole MOFSETs, mounted on a GAN-sized FET footprint. The parasitic resistances actually helped quite a lot and basically didn't need me to include a gate resistor at all for the ringing to be practically nonexistant on the rise, but was absolutely awful during the fall time. <br><br>
+
+      <img src="Images/LLC Protoboard/gate_ringing.JPG" class="img" loading="lazy" alt="" /><br><br>
+
+      As you can see, the energy from the gate capacitance is barely draining. In fact, the ringing is so severe on the fall that it actually turns on the low side FET for a good 100ns, causing significant shoot through. Additionally, seeing as how an external gate resistor of 1 ohm makes the rise time increase quite a bit, I did also try to make it faster by removing the gate resistor entirely. Then, the gate drive bootstrap capacitance started showing issues with insufficient charge, so it dips quite a bit when turning on.<br><br>
+
+      <img src="Images/LLC Protoboard/bootstrap.JPG" class="img" loading="lazy" alt="" /><br><br>
+
+      This affects the half bridge node (fed into the tank, between low side and high side) quite significantly, as shown by the lag in driving the high side MOSFET.<br><br>
+
+      <img src="Images/LLC Protoboard/insufficient_drive.JPG" class="img" loading="lazy" alt="" /><br><br>
+
+      To the right of the picture below you can see all the wires and have a pretty good idea why this is happening. <br><br>
+
+      <img src="Images/LLC Protoboard/first_design_full.JPG" class="img" loading="lazy" alt="" /><br><br>
+
+      Lastly, the thin wire is some 30AWG magnet wire I found on Amazon. Since it's relatively thin, I'm not worried about skin effect or the wire resistance, since I can just twist the wires and make them as thick as I need. What was very concerning was that there's practically no controllable gap between each winding, which at higher frequencies, has unbelievable amounts of winding capacitance. Therefore, most of the power through the transformer is just shoved back into circulating current/wire losses.<br><br>
+
+      <div class="row">
+      <img src="Images/LLC Protoboard/10turns.JPG" class="img" loading="lazy" alt="" /><br><br>
+      <img src="Images/LLC Protoboard/85turns.JPG" class="img" loading="lazy" alt="" /><br><br>
+      </div><br><br>
+
+      This is what I expected to make when designing the original board on the left - lots of spacing and a reasonable amount of turns. Please also observe the right picture where all of that gets thrown out the window. <br><br>
+
+      But surely everything will be fine if I at least get an output, right? To my surprise, it's actually quite decent at open loop already! It's a little hard to see, but I get less than $300 \mu S$ of rise time to get between 120V and 150V from a 10V input supply. I'm also quite happy with the ripple of roughly 1V. <br><br>
+
+      <img src="Images/LLC Protoboard/first_output.JPG" class="img" loading="lazy" alt="" /><br><br>
+
+      I then went ahead and characterized the supply by pulsing the output with a wide range of frequencies to find out where my inductive region is, and try to operate there to adjust my ZVS. For the normalized gain graph on the right, I simply guessed and set the resonant frequency to what looked about right on the graph visually. <br><br>
+
+      <div class="row">
+      <img src="Images/LLC Protoboard/85turn_gain.png" class="img" loading="lazy" alt="" /><br><br>
+      <img src="Images/LLC Protoboard/85turn_normalized_gain.png" class="img" loading="lazy" alt="" /><br><br>
+      </div><br><br>
+
+      I'm happy about being able to see both the capacitive and inductive regions, meaning for ZVS, I should roughly operate above 250kHz. I'm not too confident of where the plateau comes from, but I have two guesses: 1: losses from conduction loss, parasitics, and circulating current through the tank and MOSFETs or 2: my power supply/capacitor not being able to supply a constant voltage input and is operating in CC mode. <br><br>
+
+      That brings us to the last bit, the most important bit. Losses. I notice my supply drawing quite a decent amount of power, roughly 6-8W of power depending on the switching frequency. Then, looking at my output voltage with respect to the $20k\Omega$ load, it's apparent my converter is better at converting energy into heat than it is to the load! My peak efficiency was 60%, but was on average less than 50%. Here's the problem though, I don't know where the losses are. I even bought an IR heat sensing gun to pinpoint where my losses were, BUT NOTHING GETS HOT. I was unbelievably frustrated, since a loss of 4W is quite significant and should definitely heat at least one of the main suspects, the FETs, tank, gate driver, transformer, or copper. In an attempt to find these losses and hopefully fix the plethora of issues, I present, the second design.
+
+      <h1 id="Second-Design-Results">Second Design Results</h1>
+
+
+    </div>
+  </body>
+</html>
